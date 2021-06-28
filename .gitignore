@@ -139,3 +139,7 @@ cython_debug/
 
 # VS Code
 .vscode/
+
+# Postgres container files
+pgdata*
+pgadmin
