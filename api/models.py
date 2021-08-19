@@ -142,42 +142,60 @@ class UserManager(BaseUserManager):
     All we have to do is override the `create_user` function which we will use
     to create `User` objects."""
 
-    def create_user(self, roll_no):
-        # hit ldap and create a new user
+    def _create_user(self, email, name, password, **extra_details):
+        """
+        Creates and saves a User with the given email and password
+        """
 
-        # need to figure out how to create a profile
-        # for the newly created user
+        if not email:
+            raise ValueError('The given email must be set')
 
-        pass
+        if name is None:
+            raise ValueError('Name cannot be empty')
 
-    def create_superuser(self, roll_number, password):
-        """Create and return a `User` with superuser powers.
-        Superuser powers means that this use is an admin that can do anything
-        they want."""
-        if password is None:
-            raise TypeError("Superusers must have a password.")
-
-        user = self.create_user(roll_number, password)
-        user.is_superuser = True
-        user.is_staff = True
-        user.save()
-
+        email = self.normalize_email(email)
+        user = self.model(email=email, name=name, **extra_details)
+        user.set_password(password)
+        user.save(using=self._db)
         return user
+
+    def create_user(self, email, name, password=None, **extra_details):
+        """
+        Creates and saves a user with the given email, password
+        """
+        print(extra_details)
+        extra_details.setdefault('is_superuser', False)
+        return self._create_user(email, name, password, **extra_details)
+
+    def create_superuser(self, email, name, password, **extra_details):
+        """
+        Creates and saves a user with the given email, password
+        """
+
+        extra_details.setdefault('is_superuser', True)
+
+        if extra_details.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True')
+
+        return self._create_user(email, name, password, **extra_details)
 
 
 class User(AbstractBaseUser, PermissionsMixin, TimestampedModel):
     """User Model"""
-
-    roll_number = models.IntegerField(unique=True, db_index=True)
-
+    
+    name = models.CharField(max_length=255, default=None, unique=False)
+    email = models.EmailField(max_length=255, unique=True)
     # The `is_staff` flag is expected by Django to determine who can and cannot
     # log into the Django admin site. For most users, this flag will always be
     # falsed.
     is_staff = models.BooleanField(default=False)
-
+    image = models.FileField(null=True,blank=True,upload_to='media/documents/')
+    is_verified = models.BooleanField(default=False)
     # The `USERNAME_FIELD` property tells us which field we will use to log in.
-    # In this case, we want that to be the roll number
-    USERNAME_FIELD = "roll_number"
+    # In this case, we want that to be the email
+    USERNAME_FIELD = 'email'
+    EMAIL_FIELD = 'email'
+    REQUIRED_FIELDS = ['name']
 
     objects = UserManager()
 
