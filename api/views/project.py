@@ -5,17 +5,40 @@ from api.decorators.permissions import IsStaffDec
 from api.models import AreaOfResearch, Department, Project, User
 from api.controllers.response_format import error_response
 from api.controllers.project_utilities import create_project
+from django.db.models import Q
 import logging
 
 logger = logging.getLogger(__name__)
+from django.forms.models import model_to_dict
 
+def list_to_dict(items):
+    '''
+    Converts a given QuerySet into a list of dictionaries
+    '''
+    converted = []
+    for item in items:
+        converted.append(model_to_dict(item))
+    return converted
+
+@method_decorator(JsonResponseDec, name='dispatch')
 class AllProjects(View):
+    """
+    Return all Projects
+    """
     def get(self, req):
-        pass
+        projects = Project.objects.all()
+        return {
+            'data': list_to_dict(projects)
+        }
 
+@method_decorator(JsonResponseDec, name='dispatch')
 class Search(View):
     def get(self, req):
-        pass
+        query = req.GET.get("query")
+        projects = Project.objects.filter(Q(head__name__unaccent__icontains = query) | Q(name__unaccent__icontains=query)| Q(aor__name__unaccent__icontains=query))
+        return {
+            'data': list_to_dict(projects)
+        }
 
 class Tags(View):
     def get(self, req):
