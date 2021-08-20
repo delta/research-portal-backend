@@ -1,0 +1,138 @@
+[
+    {
+        "model": "api.department",
+        "pk": 1,
+        "fields": {
+            "full_name": "Computer Science & Engineering",
+            "short_name": "CSE"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 2,
+        "fields": {
+            "full_name": "Computer Applications",
+            "short_name": "CA"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 3,
+        "fields": {
+            "full_name": "Electrical & Communication Engineering",
+            "short_name": "ECE"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 4,
+        "fields": {
+            "full_name": "Electrical & Electronics Engineering",
+            "short_name": "EEE"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 5,
+        "fields": {
+            "full_name": "Mechanical Engineering",
+            "short_name": "ME"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 6,
+        "fields": {
+            "full_name": "Instrumentation & Communication Engineering",
+            "short_name": "ICE"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 7,
+        "fields": {
+            "full_name": "Chemical Engineering",
+            "short_name": "CE"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 8,
+        "fields": {
+            "full_name": "Civil Engineering",
+            "short_name": "CL"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 9,
+        "fields": {
+            "full_name": "Production Engineering",
+            "short_name": "PR"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 10,
+        "fields": {
+            "full_name": "Metallurgical & Materials Engineering",
+            "short_name": "MME"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 11,
+        "fields": {
+            "full_name": "Energy and Environment (CEESAT)",
+            "short_name": "DEE"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 12,
+        "fields": {
+            "full_name": "Mathematics",
+            "short_name": "MA"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 13,
+        "fields": {
+            "full_name": "Physics",
+            "short_name": "PH"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 14,
+        "fields": {
+            "full_name": "Humanities",
+            "short_name": "HU"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 15,
+        "fields": {
+            "full_name": "Architecture",
+            "short_name": "AR"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 16,
+        "fields": {
+            "full_name": "Management Studies",
+            "short_name": "MS"
+        }
+    },
+    {
+        "model": "api.department",
+        "pk": 17,
+        "fields": {
+            "full_name": "Maintainer",
+            "short_name": "XX"
+        }
+    }
+]

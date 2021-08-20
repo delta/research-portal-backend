@@ -43,10 +43,8 @@ class Project(TimestampedModel):
 
     name = models.CharField(max_length=255)
 
-    # creating a index for slug, to easy readable url generation and fast look up
-    # we shd be able to look-up a project with both id and slug
-    # even though slug is preferred
-    slug = models.SlugField(db_index=True, max_length=255, unique=True)
+    # AOR
+    aor = models.ForeignKey("AreaOfResearch", on_delete=models.PROTECT)
 
     # A short abstract about the Project, size < 10,000 char
     abstract = models.TextField(max_length=1e4)
@@ -65,11 +63,6 @@ class Project(TimestampedModel):
     # Owner of the project, aka person with admin rights.
     head = models.ForeignKey("User", on_delete=models.CASCADE)
 
-    def __init__(self, *args, **kwargs):
-        # When creating a new project,
-        # add a project creator, with admin privilege
-        pass
-
     def __str__(self):
         """Returns name of project - author"""
         # TODO
@@ -82,8 +75,8 @@ class ProjectMemberRelationship(models.Model):
     Prof who creates the Project will automatically be given the admin role.
     And No-one else can have that role."""
 
-    project_id = models.ForeignKey("Project", on_delete=models.CASCADE)
-    user_id = models.ForeignKey("User", on_delete=models.CASCADE)
+    project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    user = models.ForeignKey("User", on_delete=models.CASCADE)
 
     # One cannot delete a Privilege after it has been created
     privilege = models.ForeignKey("ProjectMemberPrivilege", on_delete=models.PROTECT)
@@ -113,10 +106,6 @@ class ProjectMemberPrivilege(models.Model):
 
     # human readable privilege name
     name = models.CharField(max_length=25)
-
-    def __init__(self, *args, **kwargs):
-        # TODO
-        pass
 
 
 class AreaOfResearch(models.Model):

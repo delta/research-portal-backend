@@ -18,3 +18,6 @@ pgAdmin interface is served at localhost:5050 with username admin@admin.com and 
 2. `source ./venv/bin/activate`
 3. `pip install -r requirements.txt`
 4. `pip install pre-commit pylint && pre-commit install`
+
+## To seed departments, privileges from fixtures
+python manage.py loaddata api/fixtures/*.json
