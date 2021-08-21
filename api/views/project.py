@@ -1,7 +1,7 @@
 from django.utils.decorators import method_decorator
 from django.views.generic import View
 from api.decorators.response import JsonResponseDec
-from api.decorators.permissions import IsStaffDec
+from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
 from api.models import AreaOfResearch, Department, Project, User
 from api.controllers.response_format import error_response
 from api.controllers.project_utilities import create_project
@@ -91,10 +91,57 @@ class Create(View):
             logger.error(e)
             return error_response("Project creation failed")
 
+@method_decorator(JsonResponseDec, name='dispatch')
+@method_decorator(CheckAccessPrivilegeDec, name='dispatch')
 class Write(View):
+    """
+        Updates following details in a project if user has "Write" access
+        1. Abstract
+        2. google Scholar's link
+    """
     def post(self, req):
-        pass
+        name = req.POST.get("name")
+        paper_link = req.POST.get("paperLink")
+        abstract = req.POST.get("abstract")
+        if not req.access_privilege == "Write":
+            return error_response("USER DOESN'T HAVE WRITE ACCESS")
+        try:
+            project = Project.objects.get(name=name)
+            project.paper_link = paper_link
+            project.abstract = abstract
+            project.save()
+            logger.info('Project(name={}) update successful'.format(name))
+            return "Project updated successfully!"
+        except Project.DoesNotExist:
+            return error_response("Project doesn't exist")
 
+@method_decorator(JsonResponseDec, name='dispatch')
+@method_decorator(CheckAccessPrivilegeDec, name='dispatch')
 class Edit(View):
+    """
+        Updates following details in a project if user has "Edit" access
+        1. Abstract
+        2. google Scholar's link
+        3. Area of research
+    """
     def post(self, req):
-        pass
+        name = req.POST.get("name")
+        paper_link = req.POST.get("paperLink")
+        abstract = req.POST.get("abstract")
+        aor = req.POST.get("areaOfResearch")
+        if not req.access_privilege == "Edit":
+            return error_response("USER DOESN'T HAVE EDIT ACCESS")
+        try:
+            project = Project.objects.get(name=name)
+            project.paper_link = paper_link
+            project.abstract = abstract
+            try:
+                aor_obj = AreaOfResearch.objects.get(name = aor)
+                project.area_of_research = aor_obj
+            except AreaOfResearch.DoesNotExist:
+                return error_response("Please select from the given areas of research")
+            project.save()
+            logger.info('Project(name={}) update successful'.format(name))
+            return "Project updated successfully!"
+        except Project.DoesNotExist:
+            return error_response("Project doesn't exist")
