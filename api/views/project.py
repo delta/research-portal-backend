@@ -100,17 +100,17 @@ class Write(View):
         2. google Scholar's link
     """
     def post(self, req):
-        name = req.POST.get("name")
+        project_id = req.POST.get("projectId")
         paper_link = req.POST.get("paperLink")
         abstract = req.POST.get("abstract")
-        if not req.access_privilege == "Write":
+        if not (req.access_privilege == "Write" or req.access_privilege == "Admin" ):
             return error_response("USER DOESN'T HAVE WRITE ACCESS")
         try:
-            project = Project.objects.get(name=name)
+            project = Project.objects.get(id=project_id)
             project.paper_link = paper_link
             project.abstract = abstract
             project.save()
-            logger.info('Project(name={}) update successful'.format(name))
+            logger.info('Project(name={}) update successful'.format(project.name))
             return "Project updated successfully!"
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")
@@ -125,14 +125,14 @@ class Edit(View):
         3. Area of research
     """
     def post(self, req):
-        name = req.POST.get("name")
+        project_id = req.POST.get("projectId")
         paper_link = req.POST.get("paperLink")
         abstract = req.POST.get("abstract")
         aor = req.POST.get("areaOfResearch")
-        if not req.access_privilege == "Edit":
+        if not (req.access_privilege == "Edit" or req.access_privilege == "Admin" ):
             return error_response("USER DOESN'T HAVE EDIT ACCESS")
         try:
-            project = Project.objects.get(name=name)
+            project = Project.objects.get(id=project_id)
             project.paper_link = paper_link
             project.abstract = abstract
             try:
@@ -141,7 +141,7 @@ class Edit(View):
             except AreaOfResearch.DoesNotExist:
                 return error_response("Please select from the given areas of research")
             project.save()
-            logger.info('Project(name={}) update successful'.format(name))
+            logger.info('Project(name={}) update successful'.format(project.name))
             return "Project updated successfully!"
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")

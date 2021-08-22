@@ -43,10 +43,10 @@ def CheckAccessPrivilegeDec(view):
             user_session = Session.objects.get(pk=session_key)
             assert user_session.get_decoded().get('user_id') == user_id
             user = request.user
-            name = request.POST.get("name")
+            project_id = request.POST.get("projectId")
 
             try:
-                project = Project.objects.get(name=name)
+                project = Project.objects.get(id=project_id)
             except Project.DoesNotExist:
                 return error_response("Project does not exist")
 

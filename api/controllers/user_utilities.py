@@ -39,3 +39,9 @@ def remove_existing_sessions(user_id):
             session.delete()
     logger.info('User(pk={}) Existing sessions deleted'.format(user_id))
     return
+
+def send_reset_pass_link(user):
+    """
+    Sends a reset password link to the user's email
+    """
+    pass

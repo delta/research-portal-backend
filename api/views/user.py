@@ -6,7 +6,6 @@ from api.models import User
 from api.decorators.response import JsonResponseDec
 from django.utils.decorators import method_decorator
 from django.core.files.storage import FileSystemStorage
-from api.helpers.user_helpers import send_reset_pass_link
 import logging
 
 logger = logging.getLogger(__name__)
