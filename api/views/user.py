@@ -92,7 +92,23 @@ class RegisterFormView(View):
 
 class ResetPassRequest(View):
     def post(self, req):
-        pass
+        """Get email from post request.
+            Check if the user exists and is verified.
+            Then send reset password link to user"""
+        email = req.POST.get('email')
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return error_response("User does not exist")
+        
+        if user.is_verified:
+            #TODO make function to send reset password link
+            send_reset_pass_link(user)
+            logger.info('User(email={}) Password reset link sent'.format(email))
+            return "Password reset link sent!"
+        else:
+            logger.info('User(email={}) Verification pending'.format(email))
+            return error_response("Email verification pending. Please check your inbox to activate your account")
 
 class ResetPassUpdate(View):
     def post(self, req):
