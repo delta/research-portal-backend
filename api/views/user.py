@@ -80,7 +80,10 @@ class RegisterFormView(View):
             if email.split("@")[0].isnumeric():
                 is_staff = False
             if not User.objects.filter(email=email).exists():
-                register_user(email, name, password, is_staff, uploaded_file_url)
+                auth_token = generate_auth_token(50)
+                register_user(email, name, password, is_staff, uploaded_file_url, auth_token)
+                user = User.objects.get(email=email)
+                send_verify_mail_link(user)
                 logger.info('User(webmail={}) Registration successful'.format(email))
                 return "Registration Successful!"
             else:
@@ -90,6 +93,7 @@ class RegisterFormView(View):
             logger.info('email={} Invalid user details')
             return error_response("Invalid user details")
 
+@method_decorator(JsonResponseDec, name='dispatch')
 class ResetPassRequest(View):
     def post(self, req):
         """Get email from post request.
@@ -102,7 +106,6 @@ class ResetPassRequest(View):
             return error_response("User does not exist")
         
         if user.is_verified:
-            #TODO make function to send reset password link
             send_reset_pass_link(user)
             logger.info('User(email={}) Password reset link sent'.format(email))
             return "Password reset link sent!"
@@ -110,6 +113,43 @@ class ResetPassRequest(View):
             logger.info('User(email={}) Verification pending'.format(email))
             return error_response("Email verification pending. Please check your inbox to activate your account")
 
+@method_decorator(JsonResponseDec, name='dispatch')
 class ResetPassUpdate(View):
     def post(self, req):
-        pass
+        new_pass = req.POST.get('new_password')
+        token = req.POST.get('token')
+
+        try:
+            user = User.objects.get(token=token)
+        except:
+            logger.info('Token({}): Invalid token'.format(token))
+            return error_response("Invalid Token")
+        # TODO - check password conditions if any and throw error if not met
+        user.set_password(new_pass)
+        new_token = generate_auth_token(50)
+        user.token = new_token
+        user.save()
+        logger.info('{} Password reset successful'.format(user))
+        return "Password successfully reset!"
+
+@method_decorator(JsonResponseDec, name='dispatch')
+class VerifyEmail(View):
+    def get(self,req):
+        """
+        Verify the user by setting is_verified to True
+        """
+        auth_token = req.GET.get('auth_token')
+        try:
+            user = User.objects.get(token=auth_token)
+        except User.DoesNotExist:
+            return error_response("User does not exist")
+        
+        if user.is_verified:
+            return error_response("User already verified")
+        else:
+            user.is_verified = True
+            new_token = generate_auth_token(50)
+            user.token = new_token
+            user.save()
+            logger.info('User(email={}) Verified successfully'.format(user.email))
+            return "User verified successfully!"
