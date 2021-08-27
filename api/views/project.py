@@ -7,6 +7,7 @@ from api.controllers.response_format import error_response
 from api.controllers.project_utilities import create_project
 from django.db.models import Q
 import logging
+import json
 
 logger = logging.getLogger(__name__)
 from django.forms.models import model_to_dict
@@ -51,12 +52,13 @@ class Create(View):
         Creates a project if user has admin access and project details (link and name) are unique
     """
     def post(self, req):
-        name = req.POST.get("name")
-        paper_link = req.POST.get("paperLink")
-        head = req.POST.get("email")
-        department = req.POST.get("department")
-        abstract = req.POST.get("abstract")
-        aor = req.POST.get("areaOfResearch")
+        projectData = json.loads(req.body)
+        name = projectData["name"]
+        paper_link = projectData["paperLink"]
+        head = projectData["head"]
+        department = projectData["department"]
+        abstract = projectData["abstract"]
+        aor = projectData["aor"]
         
         if not req.is_staff:
             return error_response("PERMISSION DENIED TO CREATE PROJECTS")

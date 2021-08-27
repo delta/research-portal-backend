@@ -113,7 +113,7 @@ class AreaOfResearch(models.Model):
 
     name = models.CharField(max_length=255, unique=True)
 
-    slug = models.SlugField(max_length=255, db_index=True)
+    description = models.TextField(max_length=1e4)
 
     # Every Area Of Reseach must belong to a department,
     # A project from any department, can belong
