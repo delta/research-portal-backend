@@ -7,6 +7,7 @@ from api.decorators.response import JsonResponseDec
 from django.utils.decorators import method_decorator
 from django.core.files.storage import FileSystemStorage
 import logging
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -16,8 +17,9 @@ class LoginFormView(View):
         """
         Logs in the user and sets session
         """
-        email = req.POST.get('email')
-        password = req.POST.get('password')
+        user = json.loads(req.body)
+        email = user['email']
+        password = user['password']
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:

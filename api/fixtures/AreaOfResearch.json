@@ -1,0 +1,30 @@
+[
+    {
+        "model": "api.areaofresearch",
+        "pk": 1,
+        "fields": {
+            "name": "Machine Learning" ,
+            "department": 1,
+            "description": "Machine learning is the study of computer algorithms that can improve automatically through experience and by the use of data."
+        }
+    },
+    {
+        "model": "api.areaofresearch",
+        "pk": 2,
+        "fields": {
+            "name": "Robotics" ,
+            "department": 3,
+            "description": "Robotics is an interdisciplinary field that integrates computer science and engineering. Robotics involves design, construction, operation, and use of robots."
+        }
+    },
+    {
+        "model": "api.areaofresearch",
+        "pk": 3,
+        "fields": {
+            "name": "Blockchain" ,
+            "department": 1,
+            "description": "Blockchain technology is most simply defined as a decentralized, distributed ledger that records the provenance of a digital asset. By inherent design, the data on a blockchain is unable to be modified, which makes it a legitimate disruptor for industries like payments, cybersecurity and healthcare."
+        }
+    }
+    
+]
