@@ -33,6 +33,23 @@ class AllProjects(View):
         }
 
 @method_decorator(JsonResponseDec, name='dispatch')
+@method_decorator(CheckAccessPrivilegeDec, name='dispatch')
+class ProjectWithId(View):
+    """
+    Return a Projects with id
+    """
+    def get(self, req):
+        id = req.GET.get("projectId")
+        try:
+            project = Project.objects.get(pk=id)
+        except Project.DoesNotExist:
+            return error_response("Project doesn't exist")
+        return {
+            'data': model_to_dict(project),
+            'privilege': req.access_privilege
+        }
+
+@method_decorator(JsonResponseDec, name='dispatch')
 class Search(View):
     def get(self, req):
         query = req.GET.get("query")
@@ -127,18 +144,22 @@ class Edit(View):
         3. Area of research
     """
     def post(self, req):
-        project_id = req.POST.get("projectId")
-        paper_link = req.POST.get("paperLink")
-        abstract = req.POST.get("abstract")
-        aor = req.POST.get("areaOfResearch")
-        if not (req.access_privilege == "Edit" or req.access_privilege == "Admin" ):
+        projectData = json.loads(req.body)
+        project_id = projectData["projectId"]
+        paper_link = projectData["paperLink"]
+        abstract = projectData["abstract"]
+        # print(not (req.access_privilege == "Edit" or req.access_privilege == "admin"))
+        aor = projectData["aor"]
+        if not (req.access_privilege == "Edit" or req.access_privilege == "admin"):
             return error_response("USER DOESN'T HAVE EDIT ACCESS")
+        print('hi')
         try:
+            print(project_id)
             project = Project.objects.get(id=project_id)
             project.paper_link = paper_link
             project.abstract = abstract
             try:
-                aor_obj = AreaOfResearch.objects.get(name = aor)
+                aor_obj = AreaOfResearch.objects.get(pk = aor)
                 project.area_of_research = aor_obj
             except AreaOfResearch.DoesNotExist:
                 return error_response("Please select from the given areas of research")

@@ -63,11 +63,6 @@ class Project(TimestampedModel):
     # Owner of the project, aka person with admin rights.
     head = models.ForeignKey("User", on_delete=models.CASCADE)
 
-    def __str__(self):
-        """Returns name of project - author"""
-        # TODO
-        pass
-
 
 class ProjectMemberRelationship(models.Model):
     """Project Member Relation Model
