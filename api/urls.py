@@ -23,6 +23,7 @@ urlpatterns = [
     # Project routes
     #search route: pass a parameter type (name, prof, interest, tag) and value
     url('projects', project.AllProjects.as_view(), name='projects-all'),
+    
     url('project/search', project.Search.as_view(), name='search'),
     # create route 
     url('project/create', project.Create.as_view(), name='project-create'),
@@ -32,6 +33,7 @@ urlpatterns = [
     url('project/write', project.Write.as_view(), name='project-write'),
     #Tags
     url('project/tags', project.Tags.as_view(), name='tags'),
+    url('project/id', project.ProjectWithId.as_view(), name='projects-all'),
     
     #AOR
     url('aor', home.AllAor.as_view(), name='aor-all'),

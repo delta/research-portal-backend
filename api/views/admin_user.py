@@ -1,6 +1,6 @@
 from django.views.generic import View
 from django.forms.models import model_to_dict
-from
+from django.http import JsonResponse
 from api.models import  User
 
 class AllUsers(View):
