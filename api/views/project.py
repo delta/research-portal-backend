@@ -2,7 +2,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import View
 from api.decorators.response import JsonResponseDec
 from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
-from api.models import AreaOfResearch, Department, Project, User
+from api.models import AreaOfResearch, Department, Project, User, ProjectMemberRelationship
 from api.controllers.response_format import error_response
 from api.controllers.project_utilities import create_project
 from django.db.models import Q
@@ -42,6 +42,13 @@ class ProjectWithId(View):
         id = req.GET.get("projectId")
         try:
             project = Project.objects.get(pk=id)
+            project_relationships = ProjectMemberRelationship.objects.filter(project=project)
+            project_relationships_dict = []
+            for rel in project_relationships:
+                rel_obj = model_to_dict(rel)
+                rel_obj['user'] = model_to_dict(rel.user)
+                project_relationships_dict.append(model_to_dict(rel))
+
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")
         return {
@@ -52,8 +59,16 @@ class ProjectWithId(View):
 @method_decorator(JsonResponseDec, name='dispatch')
 class Search(View):
     def get(self, req):
-        query = req.GET.get("query")
-        projects = Project.objects.filter(Q(head__name__unaccent__icontains = query) | Q(name__unaccent__icontains=query)| Q(aor__name__unaccent__icontains=query))
+        projectName = req.GET.get("projectName")
+        department = req.GET.get("department")
+        areaOfResearch = req.GET.get("aor")
+        headName = req.GET.get("headName")
+        projects = Project.objects.filter(
+            Q(head__name__unaccent__icontains = headName) & 
+            Q(name__unaccent__icontains = projectName) & 
+            Q(aor__name__unaccent__icontains= areaOfResearch) & 
+            Q(department__short_name__unaccent__icontains=department)
+        )
         return {
             'data': list_to_dict(projects)
         }
