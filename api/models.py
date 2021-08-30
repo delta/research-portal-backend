@@ -175,6 +175,18 @@ class User(AbstractBaseUser, PermissionsMixin, TimestampedModel):
     # falsed.
     is_staff = models.BooleanField(default=False)
     image = models.FileField(null=True,blank=True,upload_to='media/documents/')
+
+    @property
+    def image_url(self):
+        from django.contrib.sites.models import Site
+
+        domain = Site.objects.get_current().domain
+        print(domain)
+        url = 'http://{domain}'.format(domain=domain)
+
+        if self.image and hasattr(self.image, 'url'):
+            return url + self.image.url
+
     is_verified = models.BooleanField(default=False)
     # The `USERNAME_FIELD` property tells us which field we will use to log in.
     # In this case, we want that to be the email
@@ -225,17 +237,17 @@ class Department(models.Model):
         CA = "CA", _("Computer Applications")
         EC = "ECE", _("Electrical & Communication Engineering")
         EE = "EEE", _("Electrical & Electronics Engineering")
-        ME = "ME", _("Mechanical Engineering")
+        ME = "MECH", _("Mechanical Engineering")
         ICE = "ICE", _("Instrumentation & Communication Engineering")
-        CE = "CE", _("Chemical Engineering")
-        CL = "CL", _("Civil Engineering")
-        PR = "PR", _("Production Engineering")
-        MME = "MME", ("Metallurgical & Materials Engineering")
+        CE = "CHEM", _("Chemical Engineering")
+        CL = "CIVIL", _("Civil Engineering")
+        PR = "PROD", _("Production Engineering")
+        MME = "META", ("Metallurgical & Materials Engineering")
         DEE = "DEE", _("Energy and Environment (CEESAT)")
-        MA = "MA", _("Mathematics")
-        PH = "PH", _("Physics")
-        HU = "HU", _("Humanities")
-        AR = "AR", _("Architecture")
+        MA = "MATHS", _("Mathematics")
+        PH = "PHYSICS", _("Physics")
+        HU = "HUMANITIES", _("Humanities")
+        AR = "ARCHITECTURE", _("Architecture")
         MS = "MS", _("Management Studies")
         MAINTAINER = "XX", _("Maintainer")  # Special dept for all super-admins
 

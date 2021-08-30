@@ -3,7 +3,7 @@
         "model": "api.department",
         "pk": 1,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/students/facilitiesnservices/ComputerSupportGroup/Octagon-Nov-2018.jpg",
             "full_name": "Computer Science & Engineering",
             "short_name": "CSE"
         }
@@ -12,7 +12,7 @@
         "model": "api.department",
         "pk": 2,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/ca/lecium.jpg",
             "full_name": "Computer Applications",
             "short_name": "CA"
         }
@@ -21,7 +21,7 @@
         "model": "api.department",
         "pk": 3,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/ece/1.jpeg",
             "full_name": "Electrical & Communication Engineering",
             "short_name": "ECE"
         }
@@ -30,7 +30,7 @@
         "model": "api.department",
         "pk": 4,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/EEE/DEPT_PHOTO_FINAL.jpg",
             "full_name": "Electrical & Electronics Engineering",
             "short_name": "EEE"
         }
@@ -39,16 +39,16 @@
         "model": "api.department",
         "pk": 5,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/MECH/img_0350.jpg",
             "full_name": "Mechanical Engineering",
-            "short_name": "ME"
+            "short_name": "MECH"
         }
     },
     {
         "model": "api.department",
         "pk": 6,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/ice/ice.jpg",
             "full_name": "Instrumentation & Communication Engineering",
             "short_name": "ICE"
         }
@@ -57,43 +57,43 @@
         "model": "api.department",
         "pk": 7,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/chem/chem2.jpg",
             "full_name": "Chemical Engineering",
-            "short_name": "CE"
+            "short_name": "CHEM"
         }
     },
     {
         "model": "api.department",
         "pk": 8,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/CIVIL/dept.JPG",
             "full_name": "Civil Engineering",
-            "short_name": "CL"
+            "short_name": "CIVIL"
         }
     },
     {
         "model": "api.department",
         "pk": 9,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/prod/F.jpg",
             "full_name": "Production Engineering",
-            "short_name": "PR"
+            "short_name": "PROD"
         }
     },
     {
         "model": "api.department",
         "pk": 10,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/META/MME-Dept-photo.jpg",
             "full_name": "Metallurgical & Materials Engineering",
-            "short_name": "MME"
+            "short_name": "META"
         }
     },
     {
         "model": "api.department",
         "pk": 11,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/DEE/dee-dept.jpeg",
             "full_name": "Energy and Environment (CEESAT)",
             "short_name": "DEE"
         }
@@ -102,27 +102,27 @@
         "model": "api.department",
         "pk": 12,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/ca/lecium.jpg",
             "full_name": "Mathematics",
-            "short_name": "MA"
+            "short_name": "MATHS"
         }
     },
     {
         "model": "api.department",
         "pk": 13,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/physics/ojas%20front.JPG",
             "full_name": "Physics",
-            "short_name": "PH"
+            "short_name": "PHYSICS"
         }
     },
     {
         "model": "api.department",
         "pk": 14,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
+            "image_url":"https://www.nitt.edu/home/academics/departments/ca/lecium.jpg",
             "full_name": "Humanities",
-            "short_name": "HU"
+            "short_name": "HUMANITIES"
         }
     },
     {
@@ -131,7 +131,7 @@
         "fields": {
             "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
             "full_name": "Architecture",
-            "short_name": "AR"
+            "short_name": "ARCHITECTURE"
         }
     },
     {
@@ -140,7 +140,7 @@
         "fields": {
             "image_url":"https://www.nitt.edu/home/academics/departments/architecture/archi.jpg",
             "full_name": "Management Studies",
-            "short_name": "MS"
+            "short_name": "MANAGMENT"
         }
     },
     {
