@@ -15,6 +15,7 @@ urlpatterns = [
 
     # Admin-user routes
     url('admin_users', admin_user.AllUsers.as_view(), name='admin-users'),
+    url('admin_users/search', user.Search.as_view(), name='search'),
     url('admin_user/project/', admin_user.Profile.as_view(), name='project-profile'),
     url('admin_user/update_roles/', admin_user.AssignRoles.as_view(), name='update-roles'),
     url('admin_user/create_tags/', admin_user.CreateTags.as_view(), name='create-tags'),
@@ -23,6 +24,7 @@ urlpatterns = [
     # Project routes
     #search route: pass a parameter type (name, prof, interest, tag) and value
     url('projects', project.AllProjects.as_view(), name='projects-all'),
+    url('project/privilege', project.GetPrivilege.as_view(), name='project-privilege'),
     
     url('project/search', project.Search.as_view(), name='search'),
     # create route 

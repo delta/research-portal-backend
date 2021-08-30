@@ -1,8 +1,9 @@
+from django.forms.models import model_to_dict
 from django.utils.decorators import method_decorator
 from django.views.generic import View
 from api.decorators.response import JsonResponseDec
 from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
-from api.models import AreaOfResearch, Department, Project, User, ProjectMemberRelationship
+from api.models import AreaOfResearch, Department, Project, ProjectMemberRelationship, User
 from api.controllers.response_format import error_response
 from api.controllers.project_utilities import create_project
 from django.db.models import Q
@@ -10,7 +11,7 @@ import logging
 import json
 
 logger = logging.getLogger(__name__)
-from django.forms.models import model_to_dict
+
 
 def list_to_dict(items):
     '''
@@ -21,16 +22,19 @@ def list_to_dict(items):
         converted.append(model_to_dict(item))
     return converted
 
+
 @method_decorator(JsonResponseDec, name='dispatch')
 class AllProjects(View):
     """
     Return all Projects
     """
+
     def get(self, req):
         projects = Project.objects.all()
         return {
             'data': list_to_dict(projects)
         }
+
 
 @method_decorator(JsonResponseDec, name='dispatch')
 @method_decorator(CheckAccessPrivilegeDec, name='dispatch')
@@ -38,23 +42,34 @@ class ProjectWithId(View):
     """
     Return a Projects with id
     """
+
     def get(self, req):
         id = req.GET.get("projectId")
         try:
             project = Project.objects.get(pk=id)
-            project_relationships = ProjectMemberRelationship.objects.filter(project=project)
-            project_relationships_dict = []
-            for rel in project_relationships:
-                rel_obj = model_to_dict(rel)
-                rel_obj['user'] = model_to_dict(rel.user)
-                project_relationships_dict.append(model_to_dict(rel))
+            project_response = model_to_dict(project)
+            project_response["aor"] = model_to_dict(project.aor)
+            project_response["department"] = model_to_dict(project.department)
+            project_response["head"] = project.head.name
+            # project_relationships = ProjectMemberRelationship.objects.filter(
+            #     project=project)
+            # project_relationships_dict = []
+            # for rel in project_relationships:
+            #     rel_obj = model_to_dict(rel)
+            #     model_to_dict(rel.user,
+            #                   exclude=['image'],  # fields to exclude
+            #                   )
+            #     # rel_obj['user'] = model_to_dict(rel.user)
+            #     project_relationships_dict.append(rel_obj)
+            # project_response["members"] = project_relationships_dict
 
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")
         return {
-            'data': model_to_dict(project),
+            'data': project_response,
             'privilege': req.access_privilege
         }
+
 
 @method_decorator(JsonResponseDec, name='dispatch')
 class Search(View):
@@ -73,9 +88,21 @@ class Search(View):
             'data': list_to_dict(projects)
         }
 
+@method_decorator(JsonResponseDec, name='dispatch')
+@method_decorator(CheckAccessPrivilegeDec, name='dispatch')
+class GetPrivilege(View):
+    """
+        Returns the privilege of a user
+    """
+    def get(self, req):
+        return {
+            'data': req.access_privilege
+        }
+
 class Tags(View):
     def get(self, req):
         pass
+
 
 @method_decorator(JsonResponseDec, name='dispatch')
 @method_decorator(IsStaffDec, name='dispatch')
@@ -83,6 +110,7 @@ class Create(View):
     """
         Creates a project if user has admin access and project details (link and name) are unique
     """
+
     def post(self, req):
         projectData = json.loads(req.body)
         name = projectData["name"]
@@ -91,39 +119,41 @@ class Create(View):
         department = projectData["department"]
         abstract = projectData["abstract"]
         aor = projectData["aor"]
-        
+
         if not req.is_staff:
             return error_response("PERMISSION DENIED TO CREATE PROJECTS")
         try:
             user = User.objects.get(email=head)
         except User.DoesNotExist:
             return error_response("User does not exist")
-        
+
         if Project.objects.filter(paper_link=paper_link).exists():
             return error_response("Google scholar's link already exists")
-        
+
         if Project.objects.filter(name=name).exists():
             return error_response("A project with the same name exists! Please switch to a new project name")
-        
+
         try:
             department_obj = Department.objects.get(short_name=department)
         except Department.DoesNotExist:
             return error_response("Department doesn't exist")
-        
+
         try:
-            aor_obj = AreaOfResearch.objects.get(name = aor)
+            aor_obj = AreaOfResearch.objects.get(name=aor)
         except AreaOfResearch.DoesNotExist:
             return error_response("Please select from the given areas of research")
-        
+
         try:
             if create_project(name, abstract, paper_link, user, department_obj, aor_obj):
-                logger.info('Project(name={}) creation successful'.format(name))
+                logger.info(
+                    'Project(name={}) creation successful'.format(name))
                 return "Project created successfully!"
             else:
                 return error_response("Invalid details")
         except Exception as e:
             logger.error(e)
             return error_response("Project creation failed")
+
 
 @method_decorator(JsonResponseDec, name='dispatch')
 @method_decorator(CheckAccessPrivilegeDec, name='dispatch')
@@ -133,21 +163,24 @@ class Write(View):
         1. Abstract
         2. google Scholar's link
     """
+
     def post(self, req):
         project_id = req.POST.get("projectId")
         paper_link = req.POST.get("paperLink")
         abstract = req.POST.get("abstract")
-        if not (req.access_privilege == "Write" or req.access_privilege == "Admin" ):
+        if not (req.access_privilege == "Write" or req.access_privilege == "Admin"):
             return error_response("USER DOESN'T HAVE WRITE ACCESS")
         try:
             project = Project.objects.get(id=project_id)
             project.paper_link = paper_link
             project.abstract = abstract
             project.save()
-            logger.info('Project(name={}) update successful'.format(project.name))
+            logger.info(
+                'Project(name={}) update successful'.format(project.name))
             return "Project updated successfully!"
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")
+
 
 @method_decorator(JsonResponseDec, name='dispatch')
 @method_decorator(CheckAccessPrivilegeDec, name='dispatch')
@@ -158,6 +191,7 @@ class Edit(View):
         2. google Scholar's link
         3. Area of research
     """
+
     def post(self, req):
         projectData = json.loads(req.body)
         project_id = projectData["projectId"]
@@ -174,12 +208,13 @@ class Edit(View):
             project.paper_link = paper_link
             project.abstract = abstract
             try:
-                aor_obj = AreaOfResearch.objects.get(pk = aor)
+                aor_obj = AreaOfResearch.objects.get(pk=aor)
                 project.area_of_research = aor_obj
             except AreaOfResearch.DoesNotExist:
                 return error_response("Please select from the given areas of research")
             project.save()
-            logger.info('Project(name={}) update successful'.format(project.name))
+            logger.info(
+                'Project(name={}) update successful'.format(project.name))
             return "Project updated successfully!"
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")

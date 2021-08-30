@@ -1,3 +1,4 @@
+from django.forms.models import model_to_dict
 from django.views.generic import View
 from api.controllers.response_format import error_response
 from django.contrib.auth import authenticate, login
@@ -6,11 +7,21 @@ from api.models import User
 from api.decorators.response import JsonResponseDec
 from django.utils.decorators import method_decorator
 from django.core.files.storage import FileSystemStorage
+from django.db.models import Q
 import logging
 import json
 from PIL import Image
 
 logger = logging.getLogger(__name__)
+
+def list_to_dict(items):
+    '''
+    Converts a given QuerySet into a list of dictionaries
+    '''
+    converted = []
+    for item in items:
+        converted.append(model_to_dict(item))
+    return converted
 
 @method_decorator(JsonResponseDec, name='dispatch')
 class LoginFormView(View):
@@ -122,3 +133,16 @@ class ResetPassRequest(View):
 class ResetPassUpdate(View):
     def post(self, req):
         pass
+
+#search admin users
+
+@method_decorator(JsonResponseDec, name='dispatch')
+class Search(View):
+    def get(self, req):
+        query = req.GET.get("query")
+        professors = User.objects.filter(Q(name__name__unaccent__icontains=query) & Q(
+            is_staff__unaccent__icontains="true") & Q(
+            is_verified__unaccent__icontains="true"))
+        return {
+            'data': list_to_dict(professors)
+        }
