@@ -70,3 +70,36 @@ def CheckAccessPrivilegeDec(view):
             return unauthorized_response()
         return view(*args, **kwargs)
     return wrapper
+
+def IsAdmin(view):
+    '''
+    Checks if current user is admin to the particular project.
+    '''
+
+    def wrapper(*args, **kwargs):
+        try:
+            request = args[0]
+            assert isinstance(request, HttpRequest)
+            user_id = request.session.get('user_id')
+            session_key = request.session.session_key
+            user_session = Session.objects.get(pk=session_key)
+            assert user_session.get_decoded().get('user_id') == user_id
+            user = User.objects.get(id=user_id)
+            project_id = request.POST.get('project_id')
+            print(user, project_id)
+            try:
+                project = Project.objects.get(id=project_id)
+            except Project.DoesNotExist:
+                return error_response('Project does not exist')
+            if project.head == user:
+                request.is_admin = True
+            else:
+                request.is_admin = False
+                return error_response('User is not an admin to the requested project')
+            print(request.is_admin)
+        except Exception as e:
+            print(e)
+            logger.info('IsAdmin Decorator: Unauthorized response')
+            return unauthorized_response()
+        return view(*args, **kwargs)
+    return wrapper
