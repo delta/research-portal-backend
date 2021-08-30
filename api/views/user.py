@@ -8,6 +8,7 @@ from django.utils.decorators import method_decorator
 from django.core.files.storage import FileSystemStorage
 import logging
 import json
+from PIL import Image
 
 logger = logging.getLogger(__name__)
 
@@ -70,6 +71,12 @@ class RegisterFormView(View):
         is_staff = True
         
         myfile = req.FILES['profile_pic']
+        image = Image.open(myfile)
+        try:
+            image.verify()
+        except:
+            logger.info('{} Image is not valid'.format(email))
+            return error_response("Image is not valid")
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
