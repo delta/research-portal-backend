@@ -18,4 +18,9 @@ echo -e "\e[32m >>> Static files collected \e[97m"
 echo -e "\e[34m >>> Creating superuser \e[97m"
 python manage.py createsuperuser --email ${DJANGO_SUPERUSER_EMAIL} --noinput
 echo -e "\e[32m >>> Superuser created \e[97m"
+
+# Temporary fixture loading
+python manage.py loaddata api/fixtures/Lab.json
+python manage.py loaddata api/fixtures/Department.json
+
 python manage.py runserver 0.0.0.0:8000

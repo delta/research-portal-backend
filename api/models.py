@@ -37,6 +37,7 @@ class Labs(models.Model):
 
     # A brief description of the lab
     description = models.TextField(max_length=1e4)
+    image_url = models.URLField(max_length=255, blank=True, null=True)
 
 class Project(TimestampedModel):
     """Project (aka Research Group) Model"""
@@ -240,5 +241,6 @@ class Department(models.Model):
 
     full_name = models.CharField(unique=True, max_length=50)
     short_name = models.CharField(max_length=3)
+    image_url = models.URLField(max_length=255, blank=True, null=True)
 
 

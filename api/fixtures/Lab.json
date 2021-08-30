@@ -3,6 +3,7 @@
         "model": "api.labs",
         "pk": 1,
         "fields": {
+            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/research_laboratory/networking_research_lab/network_lab4.JPG",
             "name": "Electronic Devices Laboratory" ,
             "department": 3,
             "description": "Conventional Electronics laboratory equipped with CROs (20MHz), DSOs (20MHz), Function Generators (DC-1 MHz,DC-20 MHz), DC Regulated Power Supplies (+30V, 2Amps, ± 15V, 1Amps), Decade Resistance, Inductance & Capacitance boxes.  Semiconductor circuits and applications are the domains covered in these labs."
@@ -12,6 +13,7 @@
         "model": "api.labs",
         "pk": 2,
         "fields": {
+            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/research_laboratory/networking_research_lab/network_lab4.JPG",
             "name": "Digital Circuits and System Lab" ,
             "department": 3,
             "description": "The digital electronics laboratory is a unit of the Electronics and Communication Department, National Institute of Technology, Trichy, Tamil Nadu, India. This laboratory will enable the undergraduate students to learn the basic concepts and techniques in digital electronic circuits and systems. The learning objective of this laboratory is to supplement the theory course of digital circuits and systems with adequate introduction to both combinatorial and sequential logic circuits, such as, adders, subtractors, comparator, multiplexer/demultiplexer, encoders/decoders, 7-segment display and decoder/driver, flip-flop, register, counter, etc. and various combinations of these. This laboratory is equipped with FGs, CROs, PCs for software simulation, and Analog and Digital IC testers."
@@ -21,6 +23,7 @@
         "model": "api.labs",
         "pk": 3,
         "fields": {
+            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/research_laboratory/networking_research_lab/network_lab4.JPG",
             "name": "Operating Systems" ,
             "department": 1,
             "description": "Exercises involving DOS interrupts, DOS function calls, video interrupts and TSR."
@@ -30,6 +33,7 @@
         "model": "api.labs",
         "pk": 4,
         "fields": {
+            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/research_laboratory/networking_research_lab/network_lab4.JPG",
             "name": "Compiler Design" ,
             "department": 1,
             "description": "Design of parsers like recursive-descent parser for a block structured language with typical constructs."
@@ -39,6 +43,7 @@
         "model": "api.labs",
         "pk": 5,
         "fields": {
+            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/research_laboratory/networking_research_lab/network_lab4.JPG",
             "name": "Electronic Devices Laboratory" ,
             "department": 1,
             "description": "Electronic Devices Laboratory"
@@ -48,6 +53,7 @@
         "model": "api.labs",
         "pk": 6,
         "fields": {
+            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/research_laboratory/networking_research_lab/network_lab4.JPG",
             "name": "Power Electronics Lab" ,
             "department": 4,
             "description": "Thryistor converters, DC choper modules, power devices such as Thyristors, Power MOSFETs, IGBTs of various voltage and current ratings, Opto-Isolators, Pulse transformers and other related commutating components."
