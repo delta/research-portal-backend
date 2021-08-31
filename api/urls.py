@@ -17,10 +17,11 @@ urlpatterns = [
     # Admin-user routes
     url('admin_users', admin_user.AllUsers.as_view(), name='admin-users'),
     url('admin_user/search', admin_user.Search.as_view(), name='search-professor'),
-    url('admin_user/project/', admin_user.Profile.as_view(), name='project-profile'),
+    url('admin_user/profile/', admin_user.ProfileView.as_view(), name='project-profile'),
     url('admin_user/update_roles/', admin_user.AssignRoles.as_view(), name='update-roles'),
     url('admin_user/create_tags/', admin_user.CreateTags.as_view(), name='create-tags'),
     url('admin_user/add_members/', admin_user.AddMembers.as_view(), name='add-members'),
+    url('admin_user/render_image/', admin_user.RenderImage.as_view(), name='render-image'),
 
     # Project routes
     #search route: pass a parameter type (name, prof, interest, tag) and value
