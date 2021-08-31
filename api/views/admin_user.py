@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from api.models import  User
 from django.utils.decorators import method_decorator
 from api.decorators.response import JsonResponseDec
+from django.db.models import Q
 
 class AllUsers(View):
     def get(self, req):
@@ -45,9 +46,20 @@ class AddMembers(View):
 class Search(View):
     def get(self, req):
         professorName = req.GET.get("professor")
-        print(professorName)
         professors = User.objects.filter(Q(name__unaccent__icontains=professorName) & Q(
             is_staff=True))
+        data = []
+        for user in professors:
+            image_url = user.image_url
+            user = model_to_dict(user)
+            data.append({
+                'id': user['id'],
+                'name': user['name'],
+                'email': user['email'],
+                'is_verified': user['is_verified'],
+                'is_staff': user['is_staff'],
+                'image_url': image_url
+            })
         return {
-            'data': list_to_dict(professors)
+            'data': data
         }
