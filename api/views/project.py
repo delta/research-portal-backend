@@ -51,7 +51,6 @@ class ProjectWithId(View):
             project_response["aor"] = model_to_dict(project.aor)
             project_response["department"] = model_to_dict(project.department)
             project_response["head"] = project.head.name
-            print(model_to_dict(project.head.image, fields=['image_url']))
             # project_relationships = ProjectMemberRelationship.objects.filter(
             #     project=project)
             # project_relationships_dict = []
