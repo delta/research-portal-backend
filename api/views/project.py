@@ -30,9 +30,16 @@ class AllProjects(View):
     """
 
     def get(self, req):
+        data = []
         projects = Project.objects.all()
+        for proj in projects:
+            rel_obj = {
+            **model_to_dict(proj),
+            **{'image_url': proj.head.image_url}
+            }
+            data.append(rel_obj)
         return {
-            'data': list_to_dict(projects)
+            'data': data
         }
 
 
@@ -50,18 +57,22 @@ class ProjectWithId(View):
             project_response = model_to_dict(project)
             project_response["aor"] = model_to_dict(project.aor)
             project_response["department"] = model_to_dict(project.department)
-            project_response["head"] = project.head.name
-            # project_relationships = ProjectMemberRelationship.objects.filter(
-            #     project=project)
-            # project_relationships_dict = []
-            # for rel in project_relationships:
-            #     rel_obj = model_to_dict(rel)
-            #     model_to_dict(rel.user,
-            #                   exclude=['image'],  # fields to exclude
-            #                   )
-            #     # rel_obj['user'] = model_to_dict(rel.user)
-            #     project_relationships_dict.append(rel_obj)
-            # project_response["members"] = project_relationships_dict
+            project_response["head"] = {
+                **model_to_dict(project.head, exclude=['image']),
+                **{'image_url': project.head.image_url }
+            }
+            project_relationships = ProjectMemberRelationship.objects.filter(
+                project=project)
+            project_relationships_dict = []
+            for rel in project_relationships:
+                rel_obj = {
+                **model_to_dict(rel.user, exclude=['image']),
+                **{'image_url': rel.user.image_url },
+                **{'permission': rel.privilege.name}
+                }
+                # rel_obj['user'] = model_to_dict(rel.user)
+                project_relationships_dict.append(rel_obj)
+            project_response["members"] = project_relationships_dict
 
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")

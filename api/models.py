@@ -6,6 +6,7 @@ from django.contrib.auth.models import (
     BaseUserManager,
     PermissionsMixin,
 )
+import os
 
 class TimestampedModel(models.Model):
     # A timestamp representing when this object was created.
@@ -181,11 +182,10 @@ class User(AbstractBaseUser, PermissionsMixin, TimestampedModel):
         from django.contrib.sites.models import Site
 
         domain = Site.objects.get_current().domain
-        print(domain)
-        url = 'http://{domain}'.format(domain=domain)
+        url = os.environ.get('BACKEND_ROOT_APP_URL', 'http://localhost:8000')
 
         if self.image and hasattr(self.image, 'url'):
-            return url + self.image.url
+            return url + self.image.name
 
     is_verified = models.BooleanField(default=False)
     # The `USERNAME_FIELD` property tells us which field we will use to log in.

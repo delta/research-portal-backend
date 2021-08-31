@@ -10,6 +10,7 @@ class AllUsers(View):
         users = User.objects.filter(is_staff=True)
         data = []
         for user in users:
+            image_url = user.image_url
             user = model_to_dict(user)
             data.append({
                 'id': user['id'],
@@ -17,7 +18,7 @@ class AllUsers(View):
                 'email': user['email'],
                 'is_verified': user['is_verified'],
                 'is_staff': user['is_staff'],
-
+                'image_url': image_url
             })
 
         return JsonResponse({
