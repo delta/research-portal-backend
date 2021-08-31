@@ -42,7 +42,7 @@ def CheckAccessPrivilegeDec(view):
             session_key = request.session.session_key
             user_session = Session.objects.get(pk=session_key)
             assert user_session.get_decoded().get('user_id') == user_id
-            user = request.user
+            user = request.user 
             project_id = request.GET.get("projectId")
             print(project_id)
             if not project_id:

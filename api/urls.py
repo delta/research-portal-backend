@@ -12,9 +12,11 @@ urlpatterns = [
     url('user/register/', user.RegisterFormView.as_view(), name='user-register'),
     url('user/pass_reset/', user.ResetPassRequest.as_view(), name='user-pass-reset'),
     url('user/pass_update/', user.ResetPassUpdate.as_view(), name='user-pass-update'),
+    url('user/is_staff/', user.GetIsStaff.as_view(), name='user-get-privilege'),
 
     # Admin-user routes
     url('admin_users', admin_user.AllUsers.as_view(), name='admin-users'),
+    url('admin_user/search', admin_user.Search.as_view(), name='search-professor'),
     url('admin_user/project/', admin_user.Profile.as_view(), name='project-profile'),
     url('admin_user/update_roles/', admin_user.AssignRoles.as_view(), name='update-roles'),
     url('admin_user/create_tags/', admin_user.CreateTags.as_view(), name='create-tags'),
@@ -23,6 +25,7 @@ urlpatterns = [
     # Project routes
     #search route: pass a parameter type (name, prof, interest, tag) and value
     url('projects', project.AllProjects.as_view(), name='projects-all'),
+    url('project/privilege', project.GetPrivilege.as_view(), name='project-privilege'),
     
     url('project/search', project.Search.as_view(), name='search'),
     # create route 

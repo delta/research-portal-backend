@@ -2,6 +2,8 @@ from django.views.generic import View
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
 from api.models import  User
+from django.utils.decorators import method_decorator
+from api.decorators.response import JsonResponseDec
 
 class AllUsers(View):
     def get(self, req):
@@ -37,3 +39,14 @@ class CreateTags(View):
 class AddMembers(View):
     def post(self, req):
         pass
+
+@method_decorator(JsonResponseDec, name='dispatch')
+class Search(View):
+    def get(self, req):
+        professorName = req.GET.get("professor")
+        print(professorName)
+        professors = User.objects.filter(Q(name__unaccent__icontains=professorName) & Q(
+            is_staff=True))
+        return {
+            'data': list_to_dict(professors)
+        }
