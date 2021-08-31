@@ -58,12 +58,11 @@ def CheckAccessPrivilegeDec(view):
             else:
                 try:
                     project_member_relationship = ProjectMemberRelationship.objects.get(user=user,project=project)
+                    request.access_privilege = project_member_relationship.privilege.name
                 except ProjectMemberRelationship.DoesNotExist:
-                    return error_response("User is not a member of the project")
-
-                request.access_privilege = project_member_relationship.privilege.name
-
+                    request.access_privilege = "view"
         except Exception as e:
+            logger.info(e)
             logger.info('CheckAccessPrivilege Decorator: Unauthorized response')
             return unauthorized_response()
         return view(*args, **kwargs)
