@@ -95,8 +95,15 @@ class Search(View):
             Q(aor__name__unaccent__icontains= areaOfResearch) & 
             Q(department__short_name__unaccent__icontains=department)
         )
+        data = []
+        for proj in projects:
+            rel_obj = {
+            **model_to_dict(proj),
+            **{'image_url': proj.head.image_url}
+            }
+            data.append(rel_obj)
         return {
-            'data': list_to_dict(projects)
+            'data': data
         }
 
 @method_decorator(JsonResponseDec, name='dispatch')
