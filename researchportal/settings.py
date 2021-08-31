@@ -140,6 +140,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = '/static'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 SITE_ID = 1
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
@@ -150,7 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 FIXTURE_DIRS = (
-   os.path.join(PROJECT_DIR, 'fixtures'),
+    os.path.join(PROJECT_DIR, 'fixtures'),
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
