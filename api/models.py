@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.enums import IntegerChoices
+from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -40,14 +41,45 @@ class Labs(models.Model):
     description = models.TextField(max_length=1e4)
     image_url = models.URLField(max_length=255, blank=True, null=True)
 
+class COE(models.Model):
+    """Lab Model"""
+
+    name = models.CharField(max_length=255)
+    # A brief description of the COE
+    description = models.TextField(max_length=1e4)
+    image_url = models.URLField(max_length=255, blank=True, null=True)
+
+
+class AreaOfResearch(models.Model):
+    """Area of Research Model"""
+
+    name = models.CharField(max_length=255, unique=True)
+
+    description = models.TextField(max_length=1e4)
+
+    # Every Area Of Reseach must belong to a department,
+    # A project from any department, can belong
+    # to a research group of any department
+    #
+    # The only reason Area of Research has a department,
+    # is to display them in department page
+    department = models.ForeignKey("Department", on_delete=models.PROTECT)
+
 class Project(TimestampedModel):
     """Project (aka Research Group) Model"""
 
     name = models.CharField(max_length=255)
 
     # AOR
-    aor = models.ForeignKey("AreaOfResearch", on_delete=models.PROTECT)
-
+    # aor = models.ForeignKey("AreaOfResearch", on_delete=models.PROTECT)
+    aor_tags = models.ManyToManyField(AreaOfResearch)
+    tags = ArrayField(
+        models.CharField(max_length=25), 
+        default=list, 
+        blank=True,
+    )
+    labs_tags = models.ManyToManyField(Labs)
+    coe_tags = models.ManyToManyField(COE)
     # A short abstract about the Project, size < 10,000 char
     abstract = models.TextField(max_length=1e4)
 
@@ -105,22 +137,6 @@ class ProjectMemberPrivilege(models.Model):
     name = models.CharField(max_length=25)
 
 
-class AreaOfResearch(models.Model):
-    """Area of Research Model"""
-
-    name = models.CharField(max_length=255, unique=True)
-
-    description = models.TextField(max_length=1e4)
-
-    # Every Area Of Reseach must belong to a department,
-    # A project from any department, can belong
-    # to a research group of any department
-    #
-    # The only reason Area of Research has a department,
-    # is to display them in department page
-    department = models.ForeignKey("Department", on_delete=models.PROTECT)
-
-
 class UserManager(BaseUserManager):
     """Django requires that custom users define their own Manager class. By
     inheriting from `BaseUserManager`, we get a lot of the same code used by
@@ -175,8 +191,9 @@ class User(AbstractBaseUser, PermissionsMixin, TimestampedModel):
     # log into the Django admin site. For most users, this flag will always be
     # falsed.
     is_staff = models.BooleanField(default=False)
+    dept = models.ForeignKey("Department", on_delete=models.DO_NOTHING)
     image = models.FileField(null=True,blank=True,upload_to='media/documents/')
-
+    
     @property
     def image_url(self):
         from django.contrib.sites.models import Site
