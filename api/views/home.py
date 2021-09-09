@@ -1,4 +1,4 @@
-from api.models import AreaOfResearch, Department, Labs
+from api.models import AreaOfResearch, Department, Labs, COE
 from django.views.generic import View
 from django.http import HttpResponse
 from api.decorators.response import JsonResponseDec
@@ -41,10 +41,21 @@ class AllAor(View):
 @method_decorator(JsonResponseDec, name='dispatch') 
 class AllCenters(View):
     """
-    Return all Labs/Centers of Excellence
+    Return all Labs
     """
     def get(self, req):
         labs = Labs.objects.all()
         return {
             'data': list_to_dict(labs)
+        }
+
+@method_decorator(JsonResponseDec, name='dispatch')
+class AllCoe(View):
+    """
+    Return all Centers of Excellence
+    """
+    def get(self, req):
+        coe = COE.objects.all()
+        return {
+            'data': list_to_dict(coe)
         }

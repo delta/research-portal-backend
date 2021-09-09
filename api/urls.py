@@ -41,6 +41,7 @@ urlpatterns = [
     
     #AOR
     url('aor', home.AllAor.as_view(), name='aor-all'),
+    url('coe', home.AllCoe.as_view(), name='coe-all'),
     #Departments
     url('department', home.AllDepartments.as_view(), name='departments-all'),
     #Centers

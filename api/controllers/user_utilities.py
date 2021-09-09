@@ -13,14 +13,16 @@ def validate_email(email):
     except ValidationError:
         return False
 
-def register_user(email, name, password, is_staff, uploaded_file_url):
+def register_user(email, name, password, is_staff, uploaded_file_url,department):
     
     user = User.objects.create_user(email=email,
                                     name=name,
                                     password=password,
                                     is_staff=is_staff,
                                     image=uploaded_file_url,
-                                    is_verified=1)
+                                    is_verified=1,
+                                    dept=department
+                                    )
     user.save()
 
     logger.info('{} User registration successful'.format(email))

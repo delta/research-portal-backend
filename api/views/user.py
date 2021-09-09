@@ -3,7 +3,7 @@ from django.views.generic import View
 from api.controllers.response_format import error_response
 from django.contrib.auth import authenticate, login
 from api.controllers.user_utilities import *
-from api.models import User
+from api.models import User, Department
 from api.decorators.response import JsonResponseDec
 from django.utils.decorators import method_decorator
 from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
@@ -84,6 +84,12 @@ class RegisterFormView(View):
         password = req.POST.get('password')
         name = req.POST.get('name')
         is_staff = True
+        department = req.POST.get('department')
+        # get department with short_name as department
+        try:
+            department = Department.objects.get(short_name=department)
+        except Department.DoesNotExist:
+            return error_response("Department does not exist")
 
         myfile = req.FILES['profile_pic']
         fs = FileSystemStorage()
@@ -99,7 +105,7 @@ class RegisterFormView(View):
                 is_staff = False
             if not User.objects.filter(email=email).exists():
                 register_user(email, name, password,
-                              is_staff, uploaded_file_url)
+                              is_staff, uploaded_file_url, department)
                 logger.info(
                     'User(webmail={}) Registration successful'.format(email))
                 return "Registration Successful!"
