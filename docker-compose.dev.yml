@@ -2,7 +2,7 @@ version: "3.9"
    
 services:
   db:
-    container_name: db
+    container_name: research_portal_db
     image: postgres
     env_file:
       - .env
@@ -10,7 +10,7 @@ services:
       - ./pgdata_dev/db:/var/lib/postgresql/data
   
   pgadmin:
-    container_name: pgadmin
+    container_name: research_portal_pgadmin
     image: dpage/pgadmin4
     env_file:
       - .env
@@ -22,7 +22,8 @@ services:
       - db
 
   api:
-    container_name: api
+    container_name: research_portal_api
+    restart: on-failure
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -34,3 +35,5 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
