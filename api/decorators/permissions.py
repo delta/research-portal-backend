@@ -45,10 +45,8 @@ def CheckAccessPrivilegeDec(view):
                 assert user_session.get_decoded().get('user_id') == user_id
                 user = request.user 
                 project_id = request.GET.get("projectId")
-                print(project_id)
                 if not project_id:
                     project_id = request.POST.get("projectId")
-                print(project_id)
                 try:
                     project = Project.objects.get(id=project_id)
                 except Project.DoesNotExist:
@@ -86,7 +84,6 @@ def IsAdmin(view):
             assert user_session.get_decoded().get('user_id') == user_id
             user = User.objects.get(id=user_id)
             project_id = request.POST.get('project_id')
-            print(user, project_id)
             try:
                 project = Project.objects.get(id=project_id)
             except Project.DoesNotExist:
@@ -96,9 +93,8 @@ def IsAdmin(view):
             else:
                 request.is_admin = False
                 return error_response('User is not an admin to the requested project')
-            print(request.is_admin)
         except Exception as e:
-            print(e)
+            logger.error(e)
             logger.info('IsAdmin Decorator: Unauthorized response')
             return unauthorized_response()
         return view(*args, **kwargs)

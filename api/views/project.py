@@ -3,7 +3,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import View
 from api.decorators.response import JsonResponseDec
 from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
-from api.models import AreaOfResearch, Department, Project, ProjectMemberRelationship, User
+from api.models import AreaOfResearch, Department, Project, ProjectMemberRelationship, User, Labs, COE
 from api.controllers.response_format import error_response
 from api.controllers.project_utilities import create_project
 from django.db.models import Q
@@ -59,8 +59,10 @@ class ProjectWithId(View):
         id = req.GET.get("projectId")
         try:
             project = Project.objects.get(pk=id)
-            project_response = model_to_dict(project)
-            project_response["aor"] = model_to_dict(project.aor)
+            project_response = model_to_dict(project,exclude=['aor_tags', 'labs_tags', 'coe_tags'])
+            project_response['aor_tags'] = [model_to_dict(tag) for tag in project.aor_tags.all()]
+            project_response['labs_tags'] = [model_to_dict(tag) for tag in project.labs_tags.all()]
+            project_response['coe_tags'] = [model_to_dict(tag) for tag in project.coe_tags.all()]
             project_response["department"] = model_to_dict(project.department)
             project_response["head"] = {
                 **model_to_dict(project.head, exclude=['image']),
@@ -97,14 +99,17 @@ class Search(View):
         projects = Project.objects.filter(
             Q(head__name__unaccent__icontains = headName) & 
             Q(name__unaccent__icontains = projectName) & 
-            Q(aor__name__unaccent__icontains= areaOfResearch) & 
+            Q(aor_tags__name__unaccent__icontains = areaOfResearch) &
             Q(department__short_name__unaccent__icontains=department)
-        )
+        ).distinct()
         data = []
         for proj in projects:
             rel_obj = {
-            **model_to_dict(proj),
-            **{'image_url': proj.head.image_url}
+            **model_to_dict(proj, exclude=['aor_tags', 'labs_tags', 'coe_tags']),
+            **{'image_url': proj.head.image_url},
+            'aor_tags': [model_to_dict(tag) for tag in proj.aor_tags.all()],
+            'labs_tags': [model_to_dict(tag) for tag in proj.labs_tags.all()],
+            'coe_tags': [model_to_dict(tag) for tag in proj.coe_tags.all()]
             }
             data.append(rel_obj)
         return {
@@ -136,7 +141,6 @@ class Create(View):
 
     def post(self, req):
         projectData = json.loads(req.body)
-        print(projectData)
         name = projectData["name"]
         paper_link = projectData["paperLink"]
         head = projectData["head"]
@@ -187,9 +191,11 @@ class Write(View):
     """
 
     def post(self, req):
-        project_id = req.POST.get("projectId")
-        paper_link = req.POST.get("paperLink")
-        abstract = req.POST.get("abstract")
+        projectData = json.loads(req.body)
+        abstract = projectData["abstract"]
+        paper_link = projectData["paperLink"]
+        project_id = req.GET.get("projectId")
+
         if not (req.access_privilege == "Write" or req.access_privilege == "Admin"):
             return error_response("USER DOESN'T HAVE WRITE ACCESS")
         try:
@@ -212,31 +218,43 @@ class Edit(View):
         1. Abstract
         2. google Scholar's link
         3. Area of research
+        4. Labs
+        5. Coes
+        6. Tags
     """
 
     def post(self, req):
         projectData = json.loads(req.body)
-        project_id = projectData["projectId"]
-        paper_link = projectData["paperLink"]
         abstract = projectData["abstract"]
-        # print(not (req.access_privilege == "Edit" or req.access_privilege == "admin"))
+        paper_link = projectData["paperLink"]
         aor = projectData["aor"]
+        labs = projectData["labs"]
+        coes = projectData["coes"]
+        tags = projectData["tags"]
+        project_id = req.GET.get("projectId")
+
         if not (req.access_privilege == "Edit" or req.access_privilege == "admin"):
             return error_response("USER DOESN'T HAVE EDIT ACCESS")
-        print('hi')
         try:
-            print(project_id)
             project = Project.objects.get(id=project_id)
+            if Project.objects.filter(paper_link=paper_link).exists() and paper_link != project.paper_link:
+                return error_response("Google scholar's link already exists")
             project.paper_link = paper_link
             project.abstract = abstract
-            try:
-                aor_obj = AreaOfResearch.objects.get(pk=aor)
-                project.area_of_research = aor_obj
-            except AreaOfResearch.DoesNotExist:
-                return error_response("Please select from the given areas of research")
+            aor_set = AreaOfResearch.objects.filter(name__in=aor)
+            labs_set = Labs.objects.filter(name__in=labs)
+            coes_set = COE.objects.filter(name__in=coes)
+            project.aor_tags.clear()
+            project.labs_tags.clear()
+            project.coe_tags.clear()
+            project.aor_tags.add(*aor_set)
+            project.labs_tags.add(*labs_set)
+            project.coe_tags.add(*coes_set)
+            project.tags = tags
             project.save()
             logger.info(
-                'Project(name={}) update successful'.format(project.name))
-            return "Project updated successfully!"
-        except Project.DoesNotExist:
-            return error_response("Project doesn't exist")
+                'Project(name={}) edit successful'.format(project.name))
+            return "Project edited successfully!"
+        except Exception as e:
+            logger.error(e)
+            return error_response("Project edit failed")
