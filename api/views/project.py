@@ -32,12 +32,17 @@ class AllProjects(View):
     def get(self, req):
         data = []
         projects = Project.objects.all()
+        
         for proj in projects:
             rel_obj = {
-            **model_to_dict(proj),
-            **{'image_url': proj.head.image_url}
+            **model_to_dict(proj, exclude=['aor_tags', 'labs_tags', 'coe_tags']),
+            **{'image_url': proj.head.image_url},
+            'aor_tags': [model_to_dict(tag) for tag in proj.aor_tags.all()],
+            'labs_tags': [model_to_dict(tag) for tag in proj.labs_tags.all()],
+            'coe_tags': [model_to_dict(tag) for tag in proj.coe_tags.all()]
             }
             data.append(rel_obj)
+            
         return {
             'data': data
         }
@@ -131,12 +136,16 @@ class Create(View):
 
     def post(self, req):
         projectData = json.loads(req.body)
+        print(projectData)
         name = projectData["name"]
         paper_link = projectData["paperLink"]
         head = projectData["head"]
         department = projectData["department"]
         abstract = projectData["abstract"]
         aor = projectData["aor"]
+        labs = projectData["labs"]
+        tags = projectData["tags"]
+        coes = projectData["coes"]
 
         if not req.is_staff:
             return error_response("PERMISSION DENIED TO CREATE PROJECTS")
@@ -157,12 +166,7 @@ class Create(View):
             return error_response("Department doesn't exist")
 
         try:
-            aor_obj = AreaOfResearch.objects.get(name=aor)
-        except AreaOfResearch.DoesNotExist:
-            return error_response("Please select from the given areas of research")
-
-        try:
-            if create_project(name, abstract, paper_link, user, department_obj, aor_obj):
+            if create_project(name, abstract, paper_link, user, department_obj, tags, aor, labs, coes):
                 logger.info(
                     'Project(name={}) creation successful'.format(name))
                 return "Project created successfully!"
