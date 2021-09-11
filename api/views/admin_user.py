@@ -1,9 +1,10 @@
+from api.controllers.project_utilities import get_project_with_id
 from django.views.generic import View
 from django.utils.decorators import method_decorator
 from django.forms.models import model_to_dict
 from django.http import JsonResponse, HttpResponse, FileResponse
 from django.db.models import Q
-from api.models import  User, Department, Profile, ProjectMemberPrivilege, ProjectMemberRelationship, Project
+from api.models import  User, Department, ProjectMemberPrivilege, ProjectMemberRelationship, Project
 from api.controllers.response_format import error_response
 from api.decorators.permissions import IsAdmin
 from api.decorators.response import JsonResponseDec
@@ -37,79 +38,58 @@ class AllUsers(View):
             'data': data
         })
 
+@method_decorator(JsonResponseDec, name='dispatch')
 class ProfileView(View):
     """
     return details of particular professor(project head)
     """
     def get(self, req):
-        id = req.GET.get('profileId')
-        data = []
-        no_project = False
-        no_scholars = False
+        email = req.GET.get('email')
         projects = []
+        projects_non_admin = []
+        aors = []
+        labs = []
+        coes = []
+        scholars = []
         try:
-            profile = Profile.objects.filter(user__id=id)
-        except Profile.DoesNotExist:
+            profile = User.objects.get(email = email)
+        except User.DoesNotExist:
             return error_response('profile does not exist')
-        profile = profile[0]
-        user = profile.user
-        try:
-            project = Project.objects.filter(head=user)
-        except Project.DoesNotExist:
-            no_project = True
-        profile_data = model_to_dict(profile)
-        user_data = model_to_dict(user)
-        if no_project:
-            return JsonResponse({
-                'name': profile_data['name'],
-                'role': profile_data['role'],
-                'dept': profile_data['dept'],
-                'email': user_data['email'],
-                'is_staff': user_data['is_staff'],
-                'image': str(user_data['image']),
-                'projects': []
-            })
-
-        for cur_project in project:
-            project_data = model_to_dict(cur_project)
-            try:
-                pmr = ProjectMemberRelationship.objects.filter(project__head=user)
-            except ProjectMemberRelationship.DoesNotExist:
-                no_scholars = True
-            if no_scholars:
-                project_data['scholars'] = []
-                projects.append(project_data)
-            else:
-                scholars_profile = []
-                for x in pmr:
-                    try:
-                        cur_profile = Profile.objects.filter(user=x.user)
-                    except Profile.DoesNotExist:
-                        return error_response('profile does not exist')
-                    cur_profile = cur_profile[0]
-                    cur_scholar_data = cur_profile.user
-                    cur_scholar_data = model_to_dict(cur_scholar_data)
-                    cur_profile = model_to_dict(cur_profile)
-                    scholars_profile.append({
-                        'name': cur_profile['name'],
-                        'role': cur_profile['role'],
-                        'dept': cur_profile['dept'],
-                        'email': cur_scholar_data['email'],
-                        'is_staff': cur_scholar_data['is_staff'],
-                        'image': str(cur_scholar_data['image'])
-                    })
-                project_data['scholars'] = scholars_profile
-                projects.append(project_data)
         
-        return JsonResponse({
-            'name': profile_data['name'],
-            'role': profile_data['role'],
-            'dept': profile_data['dept'],
-            'email': user_data['email'],
-            'is_staff': user_data['is_staff'],
-            'image': str(user_data['image']),
-            'projects': projects
-        })
+        pmrs = ProjectMemberRelationship.objects.filter(user = profile) 
+        
+        profile_data = {
+            **model_to_dict(profile, exclude=['image', 'department']),
+            **{'image_url': profile.image_url },
+            'department': model_to_dict(profile.dept)
+        }
+        
+        for pmr in pmrs:
+            cur_project = pmr.project.id
+            
+            project_data = get_project_with_id(cur_project)
+            if project_data['success'] == False:
+                continue
+            
+            if pmr.privilege.code == 4:
+                projects.append(project_data)
+                scholars += [member for member in project_data['members'] if (not member['is_staff']) and (member['email'] != profile.email)]
+            else:
+                projects_non_admin.append({'data': project_data, 'access': pmr.privilege.name})
+            
+            aors += project_data['aor_tags']
+            labs += project_data['labs_tags']
+            coes += project_data['coe_tags']
+        
+        return {
+            'data': profile_data,
+            'scholars': scholars,
+            'aors': aors,
+            'coes': coes,
+            'labs': labs,
+            'projects': projects,
+            'non_admin_projects': projects_non_admin
+        }
 
 @method_decorator(JsonResponseDec, name='dispatch')
 @method_decorator(IsAdmin, name='dispatch')
