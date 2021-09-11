@@ -72,13 +72,26 @@ class Search(View):
         projectName = req.GET.get("projectName")
         department = req.GET.get("department")
         areaOfResearch = req.GET.get("aor")
+        coe = req.GET.get("coe")
+        lab = req.GET.get("lab")
+        tag = req.GET.get("tag")
         headName = req.GET.get("headName")
+        allProjs = Project.objects.all()
+
         projects = Project.objects.filter(
-            Q(head__name__unaccent__icontains = headName) & 
-            Q(name__unaccent__icontains = projectName) & 
-            Q(aor_tags__name__unaccent__icontains = areaOfResearch) &
-            Q(department__short_name__unaccent__icontains=department)
+            Q(head__name__unaccent__icontains = headName)
+            & Q(name__unaccent__icontains = projectName)
+            & Q(department__short_name__unaccent__icontains=department)
+            & Q(tags__icontains = tag)
         ).distinct()
+
+        if areaOfResearch != "":
+            projects = projects.filter(aor_tags__name__unaccent__icontains=areaOfResearch)
+        if coe != "":
+            projects = projects.filter(coe_tags__name__unaccent__icontains = coe).distinct()
+        if lab != "":
+            projects = projects.filter(labs_tags__name__unaccent__icontains = lab).distinct()
+
         data = []
         for proj in projects:
             rel_obj = {
@@ -198,19 +211,22 @@ class Edit(View):
         4. Labs
         5. Coes
         6. Tags
+        Updates following details also in a project if user has "Admin" access
+        1. Project Name
     """
 
     def post(self, req):
         projectData = json.loads(req.body)
         abstract = projectData["abstract"]
         paper_link = projectData["paperLink"]
+        name = projectData["name"]
         aor = projectData["aor"]
         labs = projectData["labs"]
         coes = projectData["coes"]
         tags = projectData["tags"]
         project_id = req.GET.get("projectId")
 
-        if not (req.access_privilege == "Edit" or req.access_privilege == "admin"):
+        if not (req.access_privilege == "Edit" or req.access_privilege == "Admin"):
             return error_response("USER DOESN'T HAVE EDIT ACCESS")
         try:
             project = Project.objects.get(id=project_id)
@@ -228,6 +244,10 @@ class Edit(View):
             project.labs_tags.add(*labs_set)
             project.coe_tags.add(*coes_set)
             project.tags = tags
+            if name != project.name and Project.objects.filter(name=name).exists():
+                return error_response("A project with the same name exists! Please switch to a new project name")
+            if req.access_privilege == "Admin":
+                project.name = name
             project.save()
             logger.info(
                 'Project(name={}) edit successful'.format(project.name))
