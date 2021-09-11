@@ -53,15 +53,15 @@ def CheckAccessPrivilegeDec(view):
                     return error_response("Project does not exist")
                 
                 if project.head == user:
-                    request.access_privilege = "admin"
+                    request.access_privilege = "Admin"
                 else:
                     try:
                         project_member_relationship = ProjectMemberRelationship.objects.get(user=user,project=project)
                         request.access_privilege = project_member_relationship.privilege.name
                     except ProjectMemberRelationship.DoesNotExist:
-                        request.access_privilege = "view"
+                        request.access_privilege = "View"
             else:
-                request.access_privilege = "view"
+                request.access_privilege = "View"
         except Exception as e:
             logger.info(e)
             logger.info('CheckAccessPrivilege Decorator: Unauthorized response')
