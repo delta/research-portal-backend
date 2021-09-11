@@ -5,7 +5,7 @@ from api.decorators.response import JsonResponseDec
 from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
 from api.models import AreaOfResearch, Department, Project, ProjectMemberRelationship, User, Labs, COE
 from api.controllers.response_format import error_response
-from api.controllers.project_utilities import create_project
+from api.controllers.project_utilities import create_project, get_project_with_id
 from django.db.models import Q
 import logging
 import json
@@ -57,31 +57,8 @@ class ProjectWithId(View):
 
     def get(self, req):
         id = req.GET.get("projectId")
-        try:
-            project = Project.objects.get(pk=id)
-            project_response = model_to_dict(project,exclude=['aor_tags', 'labs_tags', 'coe_tags'])
-            project_response['aor_tags'] = [model_to_dict(tag) for tag in project.aor_tags.all()]
-            project_response['labs_tags'] = [model_to_dict(tag) for tag in project.labs_tags.all()]
-            project_response['coe_tags'] = [model_to_dict(tag) for tag in project.coe_tags.all()]
-            project_response["department"] = model_to_dict(project.department)
-            project_response["head"] = {
-                **model_to_dict(project.head, exclude=['image']),
-                **{'image_url': project.head.image_url }
-            }
-            project_relationships = ProjectMemberRelationship.objects.filter(
-                project=project)
-            project_relationships_dict = []
-            for rel in project_relationships:
-                rel_obj = {
-                **model_to_dict(rel.user, exclude=['image']),
-                **{'image_url': rel.user.image_url },
-                **{'permission': rel.privilege.name}
-                }
-                # rel_obj['user'] = model_to_dict(rel.user)
-                project_relationships_dict.append(rel_obj)
-            project_response["members"] = project_relationships_dict
-
-        except Project.DoesNotExist:
+        project_response = get_project_with_id(id)
+        if project_response['success'] == False:
             return error_response("Project doesn't exist")
         return {
             'data': project_response,
