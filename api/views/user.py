@@ -6,7 +6,7 @@ from api.controllers.user_utilities import *
 from api.models import User, Department
 from api.decorators.response import JsonResponseDec
 from django.utils.decorators import method_decorator
-from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
+from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec, CheckAdminLevelDec
 from django.core.files.storage import FileSystemStorage
 from django.db.models import Q
 import logging
@@ -154,4 +154,15 @@ class GetIsStaff(View):
     def get(self, req):
         return {
             'data': req.is_staff
+        }
+@method_decorator(JsonResponseDec, name='dispatch')
+@method_decorator(CheckAdminLevelDec, name='dispatch')
+class GetAdminLevel(View):
+    """
+        Returns the admin_level of a user
+    """
+
+    def get(self, req):
+        return {
+            'data': req.admin_level
         }

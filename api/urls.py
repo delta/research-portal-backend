@@ -13,6 +13,7 @@ urlpatterns = [
     url('user/pass_reset/', user.ResetPassRequest.as_view(), name='user-pass-reset'),
     url('user/pass_update/', user.ResetPassUpdate.as_view(), name='user-pass-update'),
     url('user/is_staff/', user.GetIsStaff.as_view(), name='user-get-privilege'),
+    url('user/admin_level/',user.GetAdminLevel.as_view(),name='user-get-admin-level'),
 
     # Admin-user routes
     url('admin_users', admin_user.AllUsers.as_view(), name='admin-users'),

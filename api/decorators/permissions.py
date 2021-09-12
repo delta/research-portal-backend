@@ -52,7 +52,7 @@ def CheckAccessPrivilegeDec(view):
                 except Project.DoesNotExist:
                     return error_response("Project does not exist")
                 
-                if project.head == user:
+                if project.head == user or (user.admin_level == "Department" and user.dept.short_name == project.department.short_name) or user.admin_level == "Global":
                     request.access_privilege = "Admin"
                 else:
                     try:
@@ -96,6 +96,31 @@ def IsAdmin(view):
         except Exception as e:
             logger.error(e)
             logger.info('IsAdmin Decorator: Unauthorized response')
+            return unauthorized_response()
+        return view(*args, **kwargs)
+    return wrapper
+
+def CheckAdminLevelDec(view):
+    '''
+    Checks the Admin Level and puts it in request.
+    '''
+
+    def wrapper(*args, **kwargs):
+        try:
+            request = args[0]
+            assert isinstance(request, HttpRequest)
+            if 'user_id' in request.session:
+                user_id = request.session.get('user_id')
+                session_key = request.session.session_key
+                user_session = Session.objects.get(pk=session_key)
+                assert user_session.get_decoded().get('user_id') == user_id
+                user = User.objects.get(id=user_id)
+                request.admin_level = user.admin_level
+            else:
+                request.admin_level = "Normal"
+        except Exception as e:
+            logger.info(e)
+            logger.info('CheckAdminLevel Decorator: Unauthorized response')
             return unauthorized_response()
         return view(*args, **kwargs)
     return wrapper
