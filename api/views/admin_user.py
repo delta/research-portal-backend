@@ -78,8 +78,11 @@ class ProfileView(View):
                 projects_non_admin.append({'data': project_data, 'access': pmr.privilege.name})
             
             aors += project_data['aor_tags']
+            aors = [dict(t) for t in {tuple(d.items()) for d in aors}]
             labs += project_data['labs_tags']
+            labs = [dict(t) for t in {tuple(d.items()) for d in labs}]
             coes += project_data['coe_tags']
+            coes = [dict(t) for t in {tuple(d.items()) for d in coes}]
         
         return {
             'data': profile_data,

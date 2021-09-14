@@ -148,6 +148,9 @@ class Create(View):
         except User.DoesNotExist:
             return error_response("User does not exist")
 
+        if user.id != req.session.get('user_id'):
+            return error_response("Please enter your registered email as head"); 
+        
         if Project.objects.filter(paper_link=paper_link).exists():
             return error_response("Google scholar's link already exists")
 
