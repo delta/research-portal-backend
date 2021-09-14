@@ -47,8 +47,8 @@ class LoginFormView(View):
 
         if user is not None:
             remove_existing_sessions(user.id)
-            req.session['user_id'] = user.id
             login(req, user)
+            req.session['user_id'] = user.id
             response = {'email': user.email, 'name': user.name, }
             logger.info('{} Login successful'.format(user))
             return response

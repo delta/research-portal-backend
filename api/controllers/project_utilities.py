@@ -33,7 +33,7 @@ def get_project_with_id(id):
         project_response = model_to_dict(project,exclude=['aor_tags', 'labs_tags', 'coe_tags'])
         project_response['aor_tags'] = [{**model_to_dict(tag, exclude=['department']), 'department': tag.department.short_name} for tag in project.aor_tags.all()]
         project_response['labs_tags'] = [{**model_to_dict(tag, exclude=['department']), 'department': tag.department.short_name} for tag in project.labs_tags.all()]
-        project_response['coe_tags'] = [{**model_to_dict(tag, exclude=['department']), 'department': tag.department.short_name} for tag in project.coe_tags.all()]
+        project_response['coe_tags'] = [{**model_to_dict(tag)} for tag in project.coe_tags.all()]
         project_response["department"] = model_to_dict(project.department)
         project_response["head"] = {
             **model_to_dict(project.head, ['name', 'email', 'is_staff']),
