@@ -4,6 +4,7 @@ from api.controllers.response_format import unauthorized_response, error_respons
 from api.models import User, Project, ProjectMemberRelationship, ProjectMemberPrivilege
 from django.http import HttpRequest
 logger = logging.getLogger('django')
+import json
 
 def IsStaffDec(view):
     '''
@@ -82,13 +83,14 @@ def IsAdmin(view):
             session_key = request.session.session_key
             user_session = Session.objects.get(pk=session_key)
             assert user_session.get_decoded().get('user_id') == user_id
-            user = User.objects.get(id=user_id)
-            project_id = request.POST.get('project_id')
+            user = request.user
+            bodyData = json.loads(request.body)
+            project_id = bodyData['project_id']
             try:
                 project = Project.objects.get(id=project_id)
             except Project.DoesNotExist:
                 return error_response('Project does not exist')
-            if project.head == user:
+            if project.head.email == user.email:
                 request.is_admin = True
             else:
                 request.is_admin = False

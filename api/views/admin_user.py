@@ -102,27 +102,28 @@ class AssignRoles(View):
     1-View, 2-Write, 3-Edit, 4-Admin
     """
     def post(self, req):
-        user_id = req.POST.get('user_id')
-        project_id = req.POST.get('project_id')
-        role = req.POST.get('role')
+        bodyData = json.loads(req.body)
+        user_id = bodyData['user_id']
+        project_id = bodyData['project_id']
+        role = bodyData['role']
         try:
-            user = User.objects.filter(id=user_id)
+            user = User.objects.get(email=user_id)
         except User.DoesNotExist:
             return error_response('user does not exist')
         try:
-            project = Project.objects.filter(id=project_id)
+            project = Project.objects.get(id=project_id)
         except Project.DoesNotExist:
             return error_response('project does not exist')
         try:
-            pmp = ProjectMemberPrivilege.objects.filter(code=role)
+            pmp = ProjectMemberPrivilege.objects.get(code=role)
         except ProjectMemberPrivilege.DoesNotExist:
             return error_response('projectmemberprivilege does not exist')
         try:
-            pmr = ProjectMemberRelationship.objects.get(project=project[0],user=user[0])
+            pmr = ProjectMemberRelationship.objects.get(project=project,user=user)
         except ProjectMemberRelationship.DoesNotExist:
             return error_response('projectmemberrelationship does not exist')
         
-        pmr.privilege = pmp[0]
+        pmr.privilege = pmp
         pmr.save()
 
         return ({
@@ -140,24 +141,25 @@ class AddMembers(View):
     add members of specified role to a project if not already present
     """
     def post(self, req):
-        user_id = req.POST.get('user_id')
-        project_id = req.POST.get('project_id')
-        role = req.POST.get('role')
+        userData = json.loads(req.body)
+        user_id = userData['user_id']
+        project_id = userData['project_id']
+        role = userData['role']
         try:
-            user = User.objects.filter(id=user_id)
+            user = User.objects.get(email=user_id)
         except User.DoesNotExist:
             return error_response('user does not exist !')
+        # print(user[0])
         try:
-            project = Project.objects.filter(id=project_id)
+            project = Project.objects.get(id=project_id)
         except Project.DoesNotExist:
             return error_response('project does not exist !')
         try:
-            pmp = ProjectMemberPrivilege.objects.filter(code=role)
+            pmp = ProjectMemberPrivilege.objects.get(code=role)
         except ProjectMemberPrivilege.DoesNotExist:
             return error_response('projectmemberprivilege does not exist !')
-        
-        if not ProjectMemberRelationship.objects.filter(user=user[0],project=project[0]).exists():
-            pmr = ProjectMemberRelationship.objects.create(project=project[0],user=user[0],privilege=pmp[0])
+        if not ProjectMemberRelationship.objects.filter(user=user,project=project).exists():
+            pmr = ProjectMemberRelationship.objects.create(project=project,user=user,privilege=pmp)
         else:
             return error_response('The project-member relationship already exists')
         return ({
