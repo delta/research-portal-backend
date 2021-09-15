@@ -1,6 +1,6 @@
 [
     {
-        "model": "api.coes",
+        "model": "api.COE",
         "pk": 1,
         "fields": {
             "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI_RlAye5u_1osK32Q93X7uJD_4oQCBI9AMQ&usqp=CAU",
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "api.coes",
+        "model": "api.COE",
         "pk": 2,
         "fields": {
             "image_url": "https://www.swri.org/sites/default/files/styles/client_services_banner/public/client-services-images/D014536_7521.jpg?itok=MsZs_v6I&c=f75bed5e96e5cba8c59cb9be5dc5b28b",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "api.coes",
+        "model": "api.COE",
         "pk": 3,
         "fields": {
             "image_url": "https://siemenscoe.nitt.edu/images/banner.jpg",
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "api.coes",
+        "model": "api.COE",
         "pk": 4,
         "fields": {
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Laboratory_of_Transport_Technology_and_Automation%2C_Faculty_of_Mechanical_Engineering%2C_Technical_University_of_Varna.JPG/1200px-Laboratory_of_Transport_Technology_and_Automation%2C_Faculty_of_Mechanical_Engineering%2C_Technical_University_of_Varna.JPG",
