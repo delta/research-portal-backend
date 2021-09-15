@@ -1,0 +1,38 @@
+[
+    {
+        "model": "api.COE",
+        "pk": 1,
+        "fields": {
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI_RlAye5u_1osK32Q93X7uJD_4oQCBI9AMQ&usqp=CAU",
+            "name": "Centre of Excellence in Social Network Computing",
+            "description": "The Centre of Excellence (CoE) in Social Network Computing is an interdisciplinary forum aimed at addressing the Research Issues and Challenges in Social Network Computing and to come out with solutions, prototypes, patents, etc. The CoE has researchers from the Department of Computer Science and Engineering, Computer Applications, Electronics and Communication Engineering, Instrumentation and Control Engineering, Humanities, and Mathematics."
+        }
+    },
+    {
+        "model": "api.COE",
+        "pk": 2,
+        "fields": {
+            "image_url": "https://www.swri.org/sites/default/files/styles/client_services_banner/public/client-services-images/D014536_7521.jpg?itok=MsZs_v6I&c=f75bed5e96e5cba8c59cb9be5dc5b28b",
+            "name": "Centre of Excellence in Corrosion and Surface Engineering (CECASE)",
+            "description": "In consonance with first Statutes for National Institutes of Technology and based on the minutes of 29th meeting of Board of Governors of NIT-T (pertinent to thrust areas under any other item) held on 6th January, 2012, the Centre of Excellence in Corrosion and Surface Engineering (CECASE) was formally inaugurated by Dr.T.Ramasami, Secretary, Department of Science and Technology, Govt. of India with the august presence of Prof. Rajaram Nithyananda, Chairman, Board of Governors, NIT-Tiruchirappalli andDr.S.Sundarrajan, Director NIT-Tiruchirappalli on 26.02.2012. The Centre is poised for excellence in research and consultancy with many objectives including effective collaboration with small, medium and large scale industries. A team of fifteen members has been drawn from faculty of almost all Departments of this institute including Department of Management Studies, keeping in mind, the multidisciplinary nature of the Centre."
+        }
+    },
+    {
+        "model": "api.COE",
+        "pk": 3,
+        "fields": {
+            "image_url": "https://siemenscoe.nitt.edu/images/banner.jpg",
+            "name": "Siemens Centre of Excellence in Manufacturing",
+            "description": "The Siemens CoE in Manufacturing, established in 2018 at National Institute of Technology, Tiruchirappalli, operates with a primary focus of creating a robust technical education eco-system through its experience in industrial products and services. There are 12 sophisticated Laboratories for Design and Validation, Advanced Manufacturing, Test and Optimization, Automation, Electrical and Energy savings, Process Instrumentation, Mechatronics, CNC Machines, CNC Controller, Robotics, Rapid Prototyping and Internet of Things which provides opportunity for promising innovations. This multi-faceted unique centre offers skill development courses, Internships, Research and Development assistance and Industrial consultancy services across various sectors."
+        }
+    },
+    {
+        "model": "api.COE",
+        "pk": 4,
+        "fields": {
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Laboratory_of_Transport_Technology_and_Automation%2C_Faculty_of_Mechanical_Engineering%2C_Technical_University_of_Varna.JPG/1200px-Laboratory_of_Transport_Technology_and_Automation%2C_Faculty_of_Mechanical_Engineering%2C_Technical_University_of_Varna.JPG",
+            "name": "CETransE",
+            "description": "The Centre of Excellence in Transportation Engineering (CETransE) at NIT Tiruchirappalli was established in the year 2013 by the Department of Higher Education, Ministry of Human Resource Development, and Government of India under the scheme ‘Establishment of 50 Centers of Excellence in frontier areas of Science and Technology’. It was established with a vision of creating sustainable transportation technologies and infrastructure for optimal national and societal impact through shaping professional Transportation Engineers, assisting National and State agencies, providing R&D for Industry and offering continuing education. It is carrying out focused research in the areas of Transportation Planning, Intelligent Transportation Systems and Pavement Engineering. "
+        }
+    }
+]
