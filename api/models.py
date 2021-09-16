@@ -191,6 +191,19 @@ class User(AbstractBaseUser, PermissionsMixin, TimestampedModel):
     # log into the Django admin site. For most users, this flag will always be
     # falsed.
     is_staff = models.BooleanField(default=False)
+    class AvailableAdminLevels(models.TextChoices):
+        """Text Choice for Available Admin Levels.
+        1. Normal : Default value, no special privileges
+        2. Department : Has Admin Privileges for all projects in that department
+        3. Global : Has Admin Privileges for all projects in the system 
+        """
+
+        NORMAL = "Normal", _("Normal")
+        DEPARTMENT = "Department", _("Department")
+        GLOBAL = "Global", _("Global")
+
+    admin_level = models.CharField(max_length=25, choices=AvailableAdminLevels.choices, default=AvailableAdminLevels.NORMAL)
+
     dept = models.ForeignKey("Department", on_delete=models.DO_NOTHING)
     image = models.FileField(null=True,blank=True,upload_to='media/documents/')
     

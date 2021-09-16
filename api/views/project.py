@@ -2,7 +2,7 @@ from django.forms.models import model_to_dict
 from django.utils.decorators import method_decorator
 from django.views.generic import View
 from api.decorators.response import JsonResponseDec
-from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec
+from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec, CheckAdminLevelDec
 from api.models import AreaOfResearch, Department, Project, ProjectMemberRelationship, User, Labs, COE
 from api.controllers.response_format import error_response
 from api.controllers.project_utilities import create_project, get_project_with_id
@@ -124,6 +124,7 @@ class Tags(View):
 
 @method_decorator(JsonResponseDec, name='dispatch')
 @method_decorator(IsStaffDec, name='dispatch')
+@method_decorator(CheckAdminLevelDec, name='dispatch')
 class Create(View):
     """
         Creates a project if user has admin access and project details (link and name) are unique
@@ -161,6 +162,9 @@ class Create(View):
             department_obj = Department.objects.get(short_name=department)
         except Department.DoesNotExist:
             return error_response("Department doesn't exist")
+
+        if req.admin_level != "Global" and user.dept.short_name != department:
+            return error_response("You are allowed to create projects only in your own department")
 
         try:
             if create_project(name, abstract, paper_link, user, department_obj, tags, aor, labs, coes):
