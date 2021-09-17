@@ -30,7 +30,7 @@
         "model": "api.COE",
         "pk": 4,
         "fields": {
-            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Laboratory_of_Transport_Technology_and_Automation%2C_Faculty_of_Mechanical_Engineering%2C_Technical_University_of_Varna.JPG/1200px-Laboratory_of_Transport_Technology_and_Automation%2C_Faculty_of_Mechanical_Engineering%2C_Technical_University_of_Varna.JPG",
+            "image_url": "https://bit.ly/3EldHBY",
             "name": "CETransE",
             "description": "The Centre of Excellence in Transportation Engineering (CETransE) at NIT Tiruchirappalli was established in the year 2013 by the Department of Higher Education, Ministry of Human Resource Development, and Government of India under the scheme ‘Establishment of 50 Centers of Excellence in frontier areas of Science and Technology’. It was established with a vision of creating sustainable transportation technologies and infrastructure for optimal national and societal impact through shaping professional Transportation Engineers, assisting National and State agencies, providing R&D for Industry and offering continuing education. It is carrying out focused research in the areas of Transportation Planning, Intelligent Transportation Systems and Pavement Engineering. "
         }
