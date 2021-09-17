@@ -175,7 +175,10 @@ class UserManager(BaseUserManager):
         """
 
         extra_details.setdefault('is_superuser', True)
-
+        
+        dept = Department.objects.get(short_name = "XX")
+        extra_details.setdefault('dept', dept)
+        
         if extra_details.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True')
 
