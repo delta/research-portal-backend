@@ -16,7 +16,7 @@ python manage.py collectstatic --noinput
 echo -e "\e[32m >>> Static files collected \e[97m"
 
 echo -e "\e[34m >>> Creating superuser \e[97m"
-python manage.py createsuperuser --email ${DJANGO_SUPERUSER_EMAIL} --noinput
+python manage.py createsuperuser --noinput
 echo -e "\e[32m >>> Superuser created \e[97m"
 
 exec "$@"

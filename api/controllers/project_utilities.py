@@ -19,7 +19,7 @@ def create_project(name, abstract, paper_link, head, department, tags, aor, labs
             project.labs_tags.add(*labs_set)
             project.coe_tags.add(*coes_set)
             ProjectMemberRelationship.objects.create(project = project, user = head, privilege = project_member_privilege[0])
-            return True
+            return project
         else:
             logger.error("Admin access not found")
             return False
@@ -59,3 +59,20 @@ def get_project_with_id(id):
         logger.error(e)
         return {'success': False}
     
+def get_project_members(project):
+    """
+    Helper function to get members of a given project
+    """
+    try:
+        project_member_relationships = ProjectMemberRelationship.objects.filter(project = project)
+        
+        # Use a set() to get unique users.
+        project_members = map(
+            lambda pmr: pmr.user,
+            project_member_relationships
+        )
+        
+        return project_members
+    except Exception as e:
+        logger.error(e)
+        return []

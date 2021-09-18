@@ -1,3 +1,4 @@
+from api.controllers.email_utilities import send_project_creation_email, send_project_edit_email
 from django.forms.models import model_to_dict
 from django.utils.decorators import method_decorator
 from django.views.generic import View
@@ -167,9 +168,13 @@ class Create(View):
             return error_response("You are allowed to create projects only in your own department")
 
         try:
-            if create_project(name, abstract, paper_link, user, department_obj, tags, aor, labs, coes):
+            project = create_project(name, abstract, paper_link, user, department_obj, tags, aor, labs, coes)
+            if project:
                 logger.info(
                     'Project(name={}) creation successful'.format(name))
+                
+                send_project_creation_email(project)
+
                 return "Project created successfully!"
             else:
                 return error_response("Invalid details")
@@ -202,6 +207,9 @@ class Write(View):
             project.save()
             logger.info(
                 'Project(name={}) update successful'.format(project.name))
+
+            send_project_edit_email(project)
+            
             return "Project updated successfully!"
         except Project.DoesNotExist:
             return error_response("Project doesn't exist")
@@ -258,6 +266,7 @@ class Edit(View):
             project.save()
             logger.info(
                 'Project(name={}) edit successful'.format(project.name))
+            send_project_edit_email(project)
             return "Project edited successfully!"
         except Exception as e:
             logger.error(e)
