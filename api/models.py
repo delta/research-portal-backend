@@ -178,6 +178,7 @@ class UserManager(BaseUserManager):
         
         dept = Department.objects.get(short_name = "XX")
         extra_details.setdefault('dept', dept)
+        extra_details.setdefault('token', 0)
         
         if extra_details.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True')

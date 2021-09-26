@@ -1,5 +1,5 @@
 import logging
-
+import os
 from api.controllers.project_utilities import get_project_members
 from api.helpers.email_helpers import get_html
 from api.models import Project
@@ -72,7 +72,7 @@ def send_project_creation_email(project: Project):
     
     # Add necessary emails to this list
     recepients.extend(['delta@nitt.edu'])
-    
+    root_url = os.environ.get('BACKEND_ROOT_APP_URL')
     msg = get_message_with_headers()
     msg['Subject'] = "A new project has been created!"
     msg['To'] = ', '.join(recepients)
@@ -80,13 +80,13 @@ def send_project_creation_email(project: Project):
     msg.set_content(f'''A new project has been added to the Research Portal.
 Title: {project.name},
 Abstract: {project.abstract},
-Visit https://research.nitt.edu/project/{project.pk} to learn more.''')
+Visit {root_url}/api/project/{project.pk} to learn more.''')
 
     msg.add_alternative(get_html(
         content=f'''A new project has been added to the Research Portal.<br>
 Title: {project.name}<br>
 Abstract: {project.abstract}''',
-        link=f'https://research.nitt.edu/project/{project.pk}',
+        link=f'{root_url}/api/project/{project.pk}',
         linkText="Click here to learn more"
     ), subtype="html")
 
@@ -106,7 +106,7 @@ def send_project_edit_email(project: Project):
     
     # Add necessary emails to this list
     recepients.extend(['delta@nitt.edu'])
-    
+    root_url = os.environ.get('BACKEND_ROOT_APP_URL')
     msg = get_message_with_headers()
     msg['Subject'] = "A project has been edited!"
     msg['To'] = ', '.join(recepients)
@@ -114,13 +114,13 @@ def send_project_edit_email(project: Project):
     msg.set_content(f'''A project has been edited in the Research Portal.
 Title: {project.name},
 Abstract: {project.abstract},
-Visit https://research.nitt.edu/project/{project.pk} to learn more.''')
+Visit {root_url}/api/project/{project.pk} to learn more.''')
 
     msg.add_alternative(get_html(
         content=f'''A project has been edited in the Research Portal.<br>
 Title: {project.name}<br>
 Abstract: {project.abstract}''',
-        link=f'https://research.nitt.edu/project/{project.pk}',
+        link=f'{root_url}/api/project/{project.pk}',
         linkText="Click here to learn more"
     ), subtype="html")
 
