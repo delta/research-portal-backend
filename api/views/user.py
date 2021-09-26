@@ -1,4 +1,6 @@
+from django.contrib import auth
 from django.forms.models import model_to_dict
+from django.http.response import JsonResponse
 from django.views.generic import View
 from api.controllers.response_format import error_response
 from django.contrib.auth import authenticate, login
@@ -9,8 +11,10 @@ from django.utils.decorators import method_decorator
 from api.decorators.permissions import IsStaffDec, CheckAccessPrivilegeDec, CheckAdminLevelDec
 from django.core.files.storage import FileSystemStorage
 from django.db.models import Q
+from django.shortcuts import redirect
 import logging
 import json
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -108,8 +112,8 @@ class RegisterFormView(View):
                 register_user(email, name, password, is_staff, uploaded_file_url, department, auth_token)
                 user = User.objects.get(email=email)
                 send_verify_mail_link(user)
-                logger.info('User(webmail={}) Registration successful'.format(email))
-                return "Registration Successful!"
+                logger.info('User(webmail={}) Registration successful! Verification email sent'.format(email))
+                return "Verification email has been sent to " + email
             else:
                 logger.info(
                     'User(webmail={}) Account already exists'.format(email))
@@ -184,24 +188,31 @@ class ResetPassUpdate(View):
         logger.info('{} Password reset successful'.format(user))
         return "Password successfully reset!"
 
-@method_decorator(JsonResponseDec, name='dispatch')
+
 class VerifyEmail(View):
     def get(self,req):
         """
         Verify the user by setting is_verified to True
         """
         auth_token = req.GET.get('auth_token')
+        print(auth_token)
         try:
             user = User.objects.get(token=auth_token)
         except User.DoesNotExist:
-            return error_response("User does not exist")
-        
+            return JsonResponse({
+                'status_code': 400,
+                'data': "Invalid token",
+            })
+        print(user.is_verified)
         if user.is_verified:
-            return error_response("User already verified")
+            return JsonResponse({
+                'status_code': 400,
+                'data': "User already verified",
+            })
         else:
             user.is_verified = True
             new_token = generate_auth_token(50)
             user.token = new_token
             user.save()
             logger.info('User(email={}) Verified successfully'.format(user.email))
-            return "User verified successfully!"
+            return redirect(os.environ.get('FRONTEND_BASE_URL') + 'login')

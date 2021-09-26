@@ -27,7 +27,7 @@ def register_user(email, name, password, is_staff, uploaded_file_url, department
                                     password=password,
                                     is_staff=is_staff,
                                     image=uploaded_file_url,
-                                    is_verified=1,
+                                    is_verified=0,
                                     dept=department,
                                     token=auth_token,
                                     )
@@ -78,15 +78,15 @@ def send_verify_mail_link(user):
     msg = get_message_with_headers()
     msg['Subject'] = "Please verify your account"
     msg['To'] = ', '.join(recepients)
-    
+    root_url = os.environ.get('BACKEND_ROOT_APP_URL')
     msg.set_content(f'''Please click the following link to verify your email: https://research.nitt.edu/api/user/verify_email/?auth_token={user.token}''')
 
     msg.add_alternative(get_html(
                         content=f'''Please click the following link to verify your email:''',
-                                link=f'https://research.nitt.edu/api/user/verify_email/?auth_token={user.token}',
+                                link=f'{root_url}/api/user/verify_email/?auth_token={user.token}',
                                 linkText="Click Here"
                         ), subtype="html")
-
+    print(f'{root_url}/api/user/verify_email/?auth_token={user.token}')
     return send_email(msg)
 
 # Function to send a reset password link mail to the user's email address
@@ -99,12 +99,12 @@ def send_reset_pass_link(user):
     msg = get_message_with_headers()
     msg['Subject'] = "Link to reset your password"
     msg['To'] = ', '.join(recepients)
-    
-    msg.set_content(f'''Please click the following link to reset your password: https://research.nitt.edu/user/reset-password/?auth_token={user.token}''')
+    root_url = os.environ.get('BACKEND_ROOT_APP_URL')
+    msg.set_content(f'''Please click the following link to reset your password: {root_url}/api/user/reset-password/?auth_token={user.token}''')
 
     msg.add_alternative(get_html(
                         content=f'''Please click the following link to reset your password:''',
-                                link=f'https://research.nitt.edu/user/reset-password/?auth_token={user.token}',
+                                link=f'{root_url}/api/user/reset-password/?auth_token={user.token}',
                                 linkText="Click Here"
                         ), subtype="html")
 
