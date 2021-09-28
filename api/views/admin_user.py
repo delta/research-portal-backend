@@ -19,7 +19,7 @@ class AllUsers(View):
     """
     def get(self, req):
         try:
-            users = User.objects.filter(is_staff=True)
+            users = User.objects.filter(is_staff=True, is_verified=True)
         except User.DoesNotExist:
             return error_response('Professors of given description not found')
         data = []

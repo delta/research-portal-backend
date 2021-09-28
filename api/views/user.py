@@ -111,9 +111,12 @@ class RegisterFormView(View):
                 auth_token = generate_auth_token(50)
                 register_user(email, name, password, is_staff, uploaded_file_url, department, auth_token)
                 user = User.objects.get(email=email)
-                send_verify_mail_link(user)
+                mail_success = send_verify_mail_link(user)
                 logger.info('User(webmail={}) Registration successful! Verification email sent'.format(email))
-                return "Verification email has been sent to " + email
+                if mail_success:
+                    return "Verification email has been sent to " + email
+                else:
+                    return error_response("Error sending verification link to " + email)
             else:
                 logger.info(
                     'User(webmail={}) Account already exists'.format(email))
