@@ -3,50 +3,1309 @@
         "model": "api.labs",
         "pk": 1,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/ece/facilitiesnservices/labs/gallery/edc3.JPG",
-            "name": "Electronic Devices Laboratory" ,
-            "department": 3,
-            "description": "Conventional Electronics laboratory equipped with CROs (20MHz), DSOs (20MHz), Function Generators (DC-1 MHz,DC-20 MHz), DC Regulated Power Supplies (+30V, 2Amps, ± 15V, 1Amps), Decade Resistance, Inductance & Capacitance boxes.  Semiconductor circuits and applications are the domains covered in these labs."
+            "name": "CAD Lab",
+            "department": 15,
+            "description": "3D Studio Max 6 & Character Studio 3,3DS max 7,Auto Cad 2004,Adobe Photoshop 7,Adobe Page Maker 7,Adobe Indesign 1.5.2,Adobe Live Motion 1.0.2,Adobe GoLive 6,Adobe Illustrator 10,Adobe Premier 6.5,Corel Draw 11,Macromedia Authorware 7,Macromedia Contribute 2,Macromedia Director MX 2004,Macromedia Fireworks MX 2004,Macromedia Extension Manager,Macromedia Dreamweaver MX 2004,Macromedia Flash MX 2004,Macromedia FreeHand MXa,Macromedia Homesite+,Maya 5. Faculties: Prof.V.Ramprasad",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
         "model": "api.labs",
         "pk": 2,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/ece/facilitiesnservices/labs/gallery/digital2.JPG",
-            "name": "Digital Circuits and System Lab" ,
-            "department": 3,
-            "description": "The digital electronics laboratory is a unit of the Electronics and Communication Department, National Institute of Technology, Trichy, Tamil Nadu, India. This laboratory will enable the undergraduate students to learn the basic concepts and techniques in digital electronic circuits and systems. The learning objective of this laboratory is to supplement the theory course of digital circuits and systems with adequate introduction to both combinatorial and sequential logic circuits, such as, adders, subtractors, comparator, multiplexer/demultiplexer, encoders/decoders, 7-segment display and decoder/driver, flip-flop, register, counter, etc. and various combinations of these. This laboratory is equipped with FGs, CROs, PCs for software simulation, and Analog and Digital IC testers."
+            "name": "Momentum Transfer",
+            "department": 7,
+            "description": "To understand and apply the principles and concepts of momentum transfer theory learned in the momentum transfer course. Contact Details: 7010441790. Faculties: Dr.M.Perumalsamy Dr.T.Sivasankar",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
         "model": "api.labs",
         "pk": 3,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/curriculum_laboratory/comp_centre/CS4.JPG",
-            "name": "Operating Systems" ,
-            "department": 1,
-            "description": "Exercises involving DOS interrupts, DOS function calls, video interrupts and TSR."
+            "name": "Instrumental Analysis and Thermodynamics, ",
+            "department": 7,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
         "model": "api.labs",
         "pk": 4,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/curriculum_laboratory/comp_centre/CS3.JPG",
-            "name": "Compiler Design" ,
-            "department": 1,
-            "description": "Design of parsers like recursive-descent parser for a block structured language with typical constructs."
+            "name": "Particulate Science and Technology",
+            "department": 7,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 5,
+        "fields": {
+            "name": "Heat Transfer",
+            "department": 7,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
         "model": "api.labs",
         "pk": 6,
         "fields": {
-            "image_url":"https://www.nitt.edu/home/academics/departments/eee/facilitiesnservices/lab/research_laboratory/power_electronics_research_lab/PE2.JPG",
-            "name": "Power Electronics Lab" ,
+            "name": "Chemical Reaction Engineering",
+            "department": 7,
+            "description": "experience in experimentally finding activation energy and kinetics of reations. Contact Details: 9489066230. Faculties: Dr. P. Sivashanmugam, Dr. Muthukumar K",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 7,
+        "fields": {
+            "name": "Mass Transfer",
+            "department": 7,
+            "description": "To provide the practical exposure for applying the concepts of mass transfer operations and estimate the mass transfer design parameters. Contact Details: 0431-250 3109, 3120. Faculties: Dr.K.M.Meera S.Begum Dr.M.Matheswaran Dr.Jyoti Sahu",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 8,
+        "fields": {
+            "name": "Process Dynamics and Control",
+            "department": 7,
+            "description": "To impart hands on experience on various process control systems and instrumentation. Contact Details: 04312503104 /,04312503119. Faculties: Dr.P.Kalaichelvi",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 9,
+        "fields": {
+            "name": "Data Structures Lab",
+            "department": 1,
+            "description": "Problems in  PASCAL / C / C++  using Data Structures involving arrays, stacks, queues, strings, linked lists, trees, graphs.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 10,
+        "fields": {
+            "name": "Linear and Digital ICs",
+            "department": 1,
+            "description": "Design and implementation of combinational circuits and sequential circuits,Multiplexers,Demultiplexers,Encoders,Decoders,Counters,Shift registers,Magnitude comparator,A/D and D/A converters,Operational amplifier applications and Multivibrators. Faculties: C.Mala",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 11,
+        "fields": {
+            "name": "System Programming Lab,",
+            "department": 1,
+            "description": "Symbol table (Tree Storage) construction, Implementation of single pass, two pass Assembler, Macro Preprocessor, module binder (with Limited instruction set).,Implementation of software tools like Text editor, Interpreter, program generator etc.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 12,
+        "fields": {
+            "name": "Microprocessing and Interfacing",
+            "department": 1,
+            "description": "Solving problems using 8085,Interfacing various devices with the microprocessor such as A/D converter, D/A converter,Seven Segment displays,Stepper motor,External keyboard,Interrupt Controller and 8251 for serial data transfer,Interfacing using Micro Controller Trainer Kits.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 13,
+        "fields": {
+            "name": "Programming Languages",
+            "department": 1,
+            "description": "Functional programming techniques through LISP.Object-oriented programming methods through C++/Java/COM ,logic programming techniques throuogh PROLOG,Prallel programming techniquesthrough OCCAM / Parallel C.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 14,
+        "fields": {
+            "name": "Operating Systems",
+            "department": 1,
+            "description": "Exercises involving DOS interrupts, DOS function calls, video interrupts and TSR.Performance measurements of various processor scheduling methods, Process creation, process synchronization, and interprocess communication using Semaphores, pipes and messages in UNIX environment.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 15,
+        "fields": {
+            "name": "Database Management Systems",
+            "department": 1,
+            "description": "Exercises to be based on Sybase/Oracle/Postgres/VB/Power Builder/D2K.Applications involving vendor development systems, stores management system, finance management etc.Creation and querying of database tables.Design of tables by Normalization and Dependency analysis.Writing application softwares with host language interface.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 16,
+        "fields": {
+            "name": "Compiler Design",
+            "department": 1,
+            "description": "Design of lexical analysers.Design of parsers like recursive-descent parser for a block structured language with typical constructs.Typical exercises using LEX and YACC.Quadrapules / Triples generation using LEX and YACC for a subset of a block structured language. e.g. PASCAL",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 17,
+        "fields": {
+            "name": "Software Systems",
+            "department": 1,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 18,
+        "fields": {
+            "name": "Control Systems Research Lab",
             "department": 4,
-            "description": "Thryistor converters, DC choper modules, power devices such as Thyristors, Power MOSFETs, IGBTs of various voltage and current ratings, Opto-Isolators, Pulse transformers and other related commutating components."
+            "description": "Faculties: Dr.V.Sankaranarayanan",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 19,
+        "fields": {
+            "name": "Hybrid Electrical Systems Lab",
+            "department": 4,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 20,
+        "fields": {
+            "name": "Networking Research Lab",
+            "department": 4,
+            "description": "This lab is set up for research scholars (PhD and MS), to carry out research in areas like wireless technology , web services and networking. The different kinds of sensors are provided to develop mini and real-time wireless sensor projects by the students.  Softwares like  MPLAB, Keil etc. are used to program the universal trainer kits. QualNet will be used to simulate and study the performance of various wireless sensor network scenarios. Research will be carried out in the field of WSN. Faculties: Dr.S.Sudha",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 21,
+        "fields": {
+            "name": "Power Converters Research Lab",
+            "department": 4,
+            "description": "Faculties: Dr.N.Ammasai Gounden,Dr.C.Nagamani,Dr.S.Arul Daniel,Dr.N.Kumaresan,Dr.M.P.Selvan,Dr.G.Saravana Ilango,Dr.S.Senthil Kumar",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 22,
+        "fields": {
+            "name": "MCA Lab",
+            "department": 2,
+            "description": "The Computer lab consists of more than 90 computers systems which are connected to the OCTAGON through the intranet.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 23,
+        "fields": {
+            "name": "DISTRIBUTED AND CLOUD COMPUTING LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.N.P.GOPALAN",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 24,
+        "fields": {
+            "name": "BIG DATA ANALYTICS LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.A.V.REDDY",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 25,
+        "fields": {
+            "name": "ADVANCE INFORMATICS LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.B.RAMADOSS",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 26,
+        "fields": {
+            "name": "BIO-INFORMATICS AND PARALLEL PROCESSING LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.MICHAEL AROCK",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 27,
+        "fields": {
+            "name": "E-LEARNING AND HCL LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.S.R.BALASUNDRAM",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 28,
+        "fields": {
+            "name": "SENSORS AND SECURITY LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.P.J.A.ALPHONSE",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 29,
+        "fields": {
+            "name": "IMAGE AND VIDEO ANALYSIS LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.S.DOMNIC",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 30,
+        "fields": {
+            "name": "INFORMATION PROCESSING AND SECURITY LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.B.JANET",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 31,
+        "fields": {
+            "name": "TEXT ANALYSIS AND NLP LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.S.SANGEETHA",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 32,
+        "fields": {
+            "name": "COMPUTATIONAL INTELLIGENCE LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.R.ESWARI",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 33,
+        "fields": {
+            "name": "MACHINE LEARNING LAB",
+            "department": 2,
+            "description": "Contact Details: Dr.U.SRINAVASULU REDDY",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 34,
+        "fields": {
+            "name": "Metrology Lab",
+            "department": 5,
+            "description": "Study of profile projector,Study of electronic comparator,Gear tooth thickness measurement using gear tooth Vernier,Statistical quality control,Precision measurement,Calibration of dial gauge,Calibration of LVDT,Sine bar internal taper angle measurement,Study of precision Instrument. Contact Details: Ph.No: 0431-2503419,,Mobile: +91-94435 6187,,Mail Id: krbala@nitt.edu. Faculties: Name: Dr. K.R.Balasubramaniyan,Designation: Assistant Professor,Department of Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 35,
+        "fields": {
+            "name": "Thermal Lab",
+            "department": 5,
+            "description": "Two Stroke SI Engine,Four Stroke CI Engine,Kirloskar Engine,Multi-Cylinder Four Stroke MPFI Petrol Engine,Multi-Cylinder Four Stroke Turbocharged Diesel Engine,Multi-Cylinder Engine - Cut Section,Variable Compression Ratio Multi -Fuel Engine,Air Compressor Test Rig,Air Flow Apparatus,Flash and Fire Point Apparatus,Viscometer,Junkers Gas Calorimeter. Faculties: Mr. V. Arul Mozhi Selvan, Mr. R. Anand",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 36,
+        "fields": {
+            "name": "Dynamics Lab",
+            "department": 5,
+            "description": "Vibration Exciter,Static and dynamic balancing machine,Vibration Analyzer,Gyroscope,Accleration of Geared System,Torsional Vibration Apparatus,Jump Speed of Cam and Follower System,Apparatus for Free and Forced Vibrations with Damping. Faculties: Mr. K. Pannirselvam",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 37,
+        "fields": {
+            "name": "Heat and Mass Transfer Lab",
+            "department": 5,
+            "description": "Facilities Available: Pin Fin Apparatus: Forced convection, Free convection,Emmissivity Measurement Apparatus,Double Pipe Heat Exchanger,Thermal Conductivity Apparatus: Guarded Hot Plate method, Composite wall method​,Heat Convection measurement apparatus: Bank of Tubes, Plate Fins, Flat Plate,Film and Drop wise Condensation Apparatus,Diffusion Vacuum Pumping System,Thermal image_url Camera. Ongoing Research: Pool Boiling heat transfer,Electronic Cooling,Microchannel Heat Transfer,Spiral Rod Inserts with TiO2/Water Nanofluids,Flow and Heat Transfer through Refractory Ducts,Phase Change Materials. Contact Details: Lab: 04312503436. Faculties: Dr. S. Venkatachalapathy,Department of Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 38,
+        "fields": {
+            "name": "R.G and A.C Lab",
+            "department": 5,
+            "description": "Performance analysis of Vapour compression Refrigeration system,Performance analysis of Vapour Absorbtion refrigeration system,Condensing Test unit Performance Test,Air conditioning Test Unit Performance Test.,Automobile Air-conditioning Unit performance Test,Study experiments of Cut section models of Compressor. Contact Details: Phone : 0431-250-3420,Mail Id : vmari@nitt.edu,Phone : 0431-2503414,Mail Id : Hameed@nitt.edu. Faculties: Name: Dr. V. Mariappan,Designation :Assistant Professor,Department of Mechanical Engineering,Name : Prof. M. Shahul Hameed,Designation   : Associate Professor,Department of Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 39,
+        "fields": {
+            "name": "Automobile Lab",
+            "department": 5,
+            "description": "Automobile Suspension System & Chassis,Hydraulic Braking System,Automobile Electrical System,Automobile Air-Conditioning System,Engine Components,Solex Carburetor,Fuel Injection Pump,Steering Gear Box,Differential,Clutch Assembly. Faculties: Dr. K. Sankaranarayanasamy,Mr. T. Suthakar",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 40,
+        "fields": {
+            "name": "CAD and Simulation Lab",
+            "department": 5,
+            "description": "Software Details: SolidWorks 2008-30 users,COSMOS-30 users,FLUENT 6.3.26-20 users,GAMBIT-20 users,ABAQUS (Research Version)-5 Tokens,,Hardware Details:,Dell: Intel Core 2 Duo (E6850, 3GHz, 4MB L2 Cache, Q35 Express Chipset  1333MHz FSB), 2GB NECC Dual Channel DDR2 800MHz SDRAM, 256MB ATI Radeon HD2400, 1x160 GB SATAII HDD, 19 LCD Monitor - 15 Nos,,HCL Workstation: 2X  Intel Xeon Processor, (3GHz/800MHz/2MB Cache) , 2GB  DDR2 SDRAM, 256MB Nvidia Quadro FX 3400, 80 GB SATA HDD, 17 LCD Monitor - 2 Nos. Contact Details: Phone : +91 99943 39803,Mail Id : tramesh@nitt.edu. Faculties: Dr. T. Ramesh",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 41,
+        "fields": {
+            "name": "Safety Lab",
+            "department": 5,
+            "description": "Impact Sensitiveness Test,Friction Sensitiveness Test,Thermogravimetric Analysis,Hand Arm Vibration Measurement,Wholebody Vibration Measurement,Application of Ergomaster Software in Ergonomic Analysis,Determination of Fume Emission Rate During Arc Welding,Personal Exposure Measurements to Welding Fumes,High Volume Sampler,Study of Personal ProtectiveEquipments (PPE),Thermogravimetric Analysis (TGA),Determination of Noise Level and its Frequency. Contact Details: Phone : 9944547215,Mail Id : spshivam@nitt.edu. Faculties: Name : Dr.S.P.Sivapirakasam,Designation : Associate Professor,departmentof Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 42,
+        "fields": {
+            "name": "Department Library",
+            "department": 5,
+            "description": " Items: Books 221,CDs 05,Conference Proceeding 18 - Hard Copy, 10 - CD,Journals 05,Manuals 139,Ph.D. Thesis 04. Faculties: Mr. R. Anand",
+            "image_url": "https://www.nitt.edu/www/uploads/1670_deptlib.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 43,
+        "fields": {
+            "name": "Fluid Mechanics",
+            "department": 5,
+            "description": "Determination of coefficient of discharge of an orifice meter,Determination of coefficient of discharge of the Venturi meter,Determination of Metacentric height of a floating body,Determination of Darcy friction factor (f) for the given pipe,Determination of loss coefficient for bends and elbows in a pipeline,Determination of coefficient of discharge of Rectangular and V –Notch,Determination of performance characteristics of Francis Turbine,Determination of performance characteristics of gear oil pump,Determination of performance characteristics of submersible pump,Determination of performance characteristics of jet pump,Determination of performance characteristics of reciprocating pump,Study on Bernoulli’s principle. Contact Details: Phone : 98424 83638,Mail Id : ssuresh@nitt.edu. Faculties: Name : Dr. S. Suresh,Designation : Assistant Professor,Department of Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 44,
+        "fields": {
+            "name": "Advanced Welding Lab",
+            "department": 5,
+            "description": "Welding Trials & Experiments. Contact Details: Phone : +91 9443649278,Mail Id : nsiva@nitt.edu. Faculties: Name : Dr. N. Siva Shanmugam ,Designation  :Assistant Professor,Department of Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 45,
+        "fields": {
+            "name": "Material Testing Lab",
+            "department": 5,
+            "description": "Tensile test,Bend test,Macro characterization,Weld bead inspection and measurement,Portable gait analysis system. Contact Details: Phone : +91 9443649278,Mail Id : nsiva@nitt.edu. Faculties: Name : Dr. N. Siva Shanmugam ,Designation  :Assistant Professor,Department of Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 46,
+        "fields": {
+            "name": "Strength of Materials Lab",
+            "department": 5,
+            "description": "Impact test on aggregate,Compressive strength of a concrete block,Deflection of simply supported beam,Hardness test,Deflection of simply supported beam-wood,Tension Test,Test on open coil spring,Test on closed coil springs,Torsion test. Contact Details: Phone : +91 9443649278,Mail Id :  nisiva@nitt.edu,Phone : +91 99943 39803,Mail Id : tramesh@nitt.edu. Faculties: Name : Dr. N. Siva Shanmugam,Designation  :Assistant Professor,Department of Mechanical Engineering, Name : Dr. T. Ramesh,Designation  :Assistant Professor,Department of Mechanical Engineering",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 47,
+        "fields": {
+            "name": "Electronic Devices Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 48,
+        "fields": {
+            "name": " Digital Circuits and System Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 49,
+        "fields": {
+            "name": "Microprocessor and Microcontroller Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 50,
+        "fields": {
+            "name": "Communication Engineering Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 51,
+        "fields": {
+            "name": "Signal Processing Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 52,
+        "fields": {
+            "name": "Microwave and MIC Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 53,
+        "fields": {
+            "name": "Fiber Optics Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 54,
+        "fields": {
+            "name": "VLSI Design Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 55,
+        "fields": {
+            "name": "Wireless System Design Laboratory",
+            "department": 3,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 56,
+        "fields": {
+            "name": "Computational Laboratory",
+            "department": 8,
+            "description": "Softwares: CARIS Software - Mapping, spatial data analysis,STRAAP software - Structural analysis,AUTOCAD with AUTOCIVIL - Drafting,STAAD / Pro - Design,ARC GIS – University Lab kit 8.3 software - Mapping,REI HEADS Ver 2002 - Highway Engineering design system,Geo Concept - Data interchange between maps,ENVI Ver 4.2  - Image analysis,Build super fast - Estimation,Visual Modflow - Ground water flow modeling,Map info Professional Version 8 - Mapping,GT STRUDL - Structural analysis and design,Bentley MX Road Max 2004 - Road design,PLAXIS Professional V 8.2 + Dynamic Module + 3D Foundation V1.5 - Analysis of Geotechnical problems,ANSYS - Stress analysis,STAAD Pro-2006 - Structural analysis and design. Contact Details: Contact No : 0431-2503195, 0431-2503191 (lab),E-mail : jk@nitt.edu. Faculties: Dr. J. Karthikeyan,Assistant Professor,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/comp/Comp_lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 57,
+        "fields": {
+            "name": "Environmental Engineering Laboratory",
+            "department": 8,
+            "description": "The Environmental Engineering Department was established in the year 1989 under IIT-NIT Network Scheme funded by Ministry of Science and Technology, Government of India. The Laboratory has sophisticated equipments to analyze pollution parameters in water and waste water, soil, Air.The sophisticated instrument list includes 1. pH meter,2. Thermometer (10-110°c),3. Thermometer (0-250°c),4. Desiccator,5. Quebec colony counter,6. Junior student microscope,7. Vacuum pump,8. Refrigerator,9. Voltage stabilizer,10. Water bath,11. Hot air oven,12. Platinum crucible,13. Micro kjeldahl digestion unit,14. Spectro calorimeter,15. Photo fluorimeter,16. Muffle furnace,17. Naphelometer,18. Spectrophotometer,19. Projection microscope,20. Flame photometer,21. Analytical balance,22. Soxlet extractor,23. U-V spectrophotometer,24. Peristaltic pump,25. High volume sampler,26. 6 test sterity unit,27. Vacuum pump Double stage,28. Vacuum Sterility Filter Holder 25mm Diameter,29. Vacuum glass frit filter,30. Vacuum sterility filter holder 47 mm diameter,31. Smoke meter,32. Water quality checker,33. Centrifuge,34. Autoclave,35. Inoculation Chamber,36. Magnetic stirrer,37. De ionizer,38. BOD incubator,39. Electronic balance (6 kg),40. Electronic balance (250 g),41. Deep freezer,42. pH Meter,43. Jar test apparatus,44. Refrigerator,45.  Mixer grinder,46. LPG gas stove,47. Pressure cooker,48. Conductivity meter (pen type),49. Hot plate,50. Muffle furnace,51. Heating mantle (1000 ml),52. Heating mantle (250 ml),53. Magnetic stirrer,54. pH Meter (Pen Type),55. COD digester,56. Orbital shaking incubator,57. Flue gas analyzer,58. Ion analyzer,59. U-V visible spectrometer,60. Atomic adsorption spectro photo meter. Contact Details: Contact No : 0431-2503171 (Direct), 0431-2503190 (lab),E-mail : rgmathii@nitt.edu. Faculties: Dr. R. Gandhimathi,Assistant Professor,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/el/EE_lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 58,
+        "fields": {
+            "name": "Fluid Mechanics Laboratory",
+            "department": 8,
+            "description": "Fluid Mechanics Laboratory is well equipped with flow measuring devices in pipes and flow measurements in open channels. Facilities are available for calibration of flow measuring devices as well as pressure testing of pipes and pumps. The various equipments available in the lab are 1. Venturimeters,2. Orifice meters,3. Notch plates,4. Pipe friction apparatus,5. Mouth pieces,6. Orifice plates,7. Centrifugal pump,8. Submersible pump,9. Jet pump,10. Reciprocating pump,11. Gear oil pump,12. Screw pump,13. Pelton wheel turbine,14. Francis turbine,15. Kaplan turbine. Contact Details: Contact No : 0431-2503167 (Direct), 0431-2503189 (lab),E-mail : manju@nitt.edu. Faculties: Mrs. R. Manjula,Assistant Professor,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/flu/Flu_mech_Lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 59,
+        "fields": {
+            "name": "Strength of Materials Laboratory",
+            "department": 8,
+            "description": "Strength of Materials Laboratory offers facilities for testing building materials for their strength, behavior and suitability for various applications. The various equipments available in the lab are 1. Universal testing Machine with shear test attachment,2. Torsion testing machine,3. Electronic Universal Testing machine,4. Digital Compression testing machine 3000 kN capacity,5. Digital Compression testing machine 500 kN capacity,6. German’s Water Penetration Test System,7. AIMIL Autoclave,8. Ultrasonic Testing Machine,9. Flexural Testing Machine,10. Tension meter with accessories. Contact Details: Contact No : 0431-2503163 (Direct), 0431-2503188 (lab),E-mail : rj@nitt.edu. Faculties: Mr. R. Jayasankar,Associate Professor,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/som/SOM_Lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 60,
+        "fields": {
+            "name": "Structural Laboratory",
+            "department": 8,
+            "description": "Established under IIT- REC Network scheme in the year 1983. The laboratory has two bays for testing purposes and a casting yard for fabricating specimens. The first bay has a structural testing floor, with a loading frame of capacity 300 kN. The various equipments available in the lab are 1. Electrochemical corrosion measuring instrument,2. Strain and displacement measurement LVDTs with indicator,3. Push and pull load for cyclic loading Capacity 50 T,4. Capacity 20 T,5. Capacity 10 T,6. 6 Channel data acquisition system,7. Loading frame of 30T capacity,8. Rebound hammer,9. Hydraulic Jack 200t,100t,10. 80 Channel Data Logger. Contact Details: Contact No : 0431-2503161 (Direct), 0431-2503188 (lab),E-mail : kbaskar@nitt.edu. Faculties: Dr. K. Baskar,Associate Professor,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/sl/SE_Lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 61,
+        "fields": {
+            "name": "Soil Mechanics Laboratory",
+            "department": 8,
+            "description": "Soil mechanics laboratory is well equipped with all equipments required for identification and classification of soils.,,The various equipments available in the lab are,,,1.   Electronic direct shear Apparatus,2. Triaxial apparatus,3. Standard penetration test apparatus,4. Direct shear test apparatus,5. Proctor compaction apparatus,6. Sand pouring cylinder,7. Unconfined compression tester (proving ring type),8. Pycnometer,9. Consolidation test apparatus,10. CBR apparatus,11. Shrinkage limit apparatus,12. Liquid limit device,13. Liquid limit cone penetrometer,14. Sieve shaker (motorized),15. Plastic limit apparatus,16. Hot air oven,17. Vane shear apparatus,18. Brass sieve 4.75 to 75 micron,19. Sampling kit,20. G.I. sieve 100 mm to 4.75 mm,21. Plate load test apparatus,22. Triaxial out fit. Contact Details: Contact No : 0431-2503168 (Direct), 0431-2503188 (lab),E-mail : kmk@nitt.edu. Faculties: Dr. K. Muthukkumaran,Associate Professor,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/soil/Soil_mech_Lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 62,
+        "fields": {
+            "name": "Survey Laboratory",
+            "department": 8,
+            "description": "Established in the year 1989, this laboratory houses sophisticated instruments viz. Electronic total station, Laser theodolite, Auto levels, Vernier theodolite with 1 second accuracy, Digital plani meter, Dumpy levels and Ghat Tracer. The various other equipments available in the lab are 1. Metal ranging rods,2. Measuring chain,3. Vernier theodolite,4. Prismatic compass,5. Engineers plane table,6. Trough compass,7. Plani meter,8. Optical square,9. Box sextant,10. Levelling staff,11. Substense bar with stand,12. Subtense bar,13. Total station,14. Laser theodolite. Contact Details : Contact No : 0431-2503162 (P),E-mail : nisha@nitt.edu. Faculties: Dr.Nisha Rathakrishnan,Assistant Professor,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/sur/Survey_lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 63,
+        "fields": {
+            "name": "Transporation Laboratory",
+            "department": 8,
+            "description": "Established in the year 1983 under IIT-REC Network Scheme. Well equipped with facilities for the range of tests on pavement materials. Various equipments include Geogauge, Axle load weigh pads, Benkelman beam, fatigue test, GPS receiver , Road unevenness indicator, Standard tar viscometer, Pavement core drilling machine, Pavement cone penetrometer and Film striping device. The Highway Lab Infrastructure- 1. Portable Axle / Wheel Weigh Pad, 2. Bump Integrator / Road Unevenness Recorder / Roughometer, 3. Pavement Core Drilling Machine, 4. Electronic California Bearing Ratio Test Apparatus, 5. Radar Speed Gun, 6. Vehicle Emission Testers- Petrol & Diesel, 7. Noise Dosimeter. Contact Details: Contact No: 0431-2503165 (Direct), 0431-2503196 (Lab),E-mail : sunitha@nitt.edu. Faculties: Mrs. V. Sunitha,Lecturer,Department of Civil Engineering",
+            "image_url": "https://nitt.edu/home/academics/departments/civil/facilitiesnservices/labs/tran/TE_Lab.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 64,
+        "fields": {
+            "name": "B.E/B.Tech. lab",
+            "department": "Chemistry",
+            "description": "The departmentof Chemistry was established in 1971 occupying the whole of the ground floor of western wing of the administrative block. The Department of Chemistry possesses excellent facilities and sophisticated equipments for the students during their course of study. List of Important Instruments in Chemistry Department 1. 500 MHz NMR Spectrometer,2. Shimadzu GC-MS spectrometer,3. Agilent HR-Mass spectrometer,4. Atomic Force Microscope,5. Thermogravimetric Analyzer,6. UV-VIS Spectrophotometer (Perkin Elmer EZ301),7. FT-IR Spectrometer (Perkin Elmer- spectrum one),8. Binary Gradient HPLC System,9. AAS (GBC-902) with Graphite Furnace (GF-2000),10. Pulse polorograph,11. Potentiostat,12.Electrochemical Analyzer,13. Spectrofluorimeter,14. Gel Documentation System. Contact Details: Email: babyv@nitt.edu, Faculties: Dr. Baby Viswambharan Asst. Professor",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 65,
+        "fields": {
+            "name": "Spectroscopy and Chemical Dynamics Laboratory",
+            "department": "Chemistry",
+            "description": "Contact Details: Phone: +91 8158805377 Email: smandal@nitt.edu, Faculties: Dr. Sarthak Mandal,Assistant Professor",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 66,
+        "fields": {
+            "name": "Instrumentation Lab",
+            "department": "Chemistry",
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 67,
+        "fields": {
+            "name": "Computer lab",
+            "department": "Chemistry",
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 68,
+        "fields": {
+            "name": "Research lab",
+            "department": "Chemistry",
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 69,
+        "fields": {
+            "name": "Nanomaterials & Solar Energy Conversion Lab",
+            "department": "Chemistry",
+            "description": "Contact Details: E-mail: sanand@nitt.edu, Faculties: Dr. S Anandan,Professor",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 70,
+        "fields": {
+            "name": "X-ray Diffractometer Lab",
+            "department": 13,
+            "description": "Name of the Equipment : Rigaku Ultima III XRD for powder and thin films,Date of Installation : 25.10.2007,Funding agency : TEQIP",
+            "image_url": "http://www.nitt.edu/www/uploads/1225_xrd-rigaku.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 71,
+        "fields": {
+            "name": "Thin Film Lab",
+            "department": 13,
+            "description": "Contact Details: Email: ngk@nitt.edu,Tel: 91-431-2503607, Faculties:Dr.N.Gopalakrishnan,Professor",
+            "image_url": "http://www.nitt.edu/www/uploads/1226_thinfilm.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 72,
+        "fields": {
+            "name": "Advanced Materials Lab",
+            "department": 13,
+            "description": "Automated spray pyrolysis setup ,Dielectric measurement setup,Ultrasonic interferometer",
+            "image_url": "http://www.nitt.edu/www/uploads/1345_dsc00925.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 73,
+        "fields": {
+            "name": "Nanomaterials Lab",
+            "department": 13,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 74,
+        "fields": {
+            "name": "MSc. Lab",
+            "department": 13,
+            "description": "M.Sc Applied Physics Experiments -,Some of the experiments ...,1. Dielectric measurements,2. Hall effect,3. Electronics (Op-amp, timers, etc.),4. Michelson Interferometer,5. Photo-diode,6. Hysteresis loop,7. ESR spectroscopy,8. MATLAB/LabView,9. A/D  D/A converters,10. Micorprocessor/Microcontroller,11. Resistivity - Two probe/Four Probe methods,12. Optical fiber experiments",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 75,
+        "fields": {
+            "name": "NDT Lab",
+            "department": 13,
+            "description": "Ultrasonic Testing,Magnetic particle Testing,Liquid Penetrant Testing,Phased array Technique,Ultrasonic C-Scan,Thermography",
+            "image_url": "https://www.nitt.edu/home/academics/departments/physics/Facilities/ndtlab/IMG_2043.JPG"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 76,
+        "fields": {
+            "name": "VSM Lab",
+            "department": 13,
+            "description": "Name of the Equipment: Vibrating Sample Magnetometer,VSM Specification -Make and Model: Lakeshore, USA; Model 7404,Max. Magnetic Field: 2.17 T (0.64” air gap),Dynamic moment range: 1x10e‐7 emu –10e3 emu ,Moment & Field accuracy: 1 %. Funding agency: Department of Science and Technology (DST), Govt. of India under FIST programme",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 77,
+        "fields": {
+            "name": "Thermal Lab",
+            "department": 13,
+            "description": "Name of the equipment : Thermogravimetric analyser/Differential Thermal Analyser (TG/DTA),Specification of the equipment - ,Make and Model: SII Nanotechnology Inc., Japan, EXSTAR6200 TG/DTA,Temperature range: Ambient –1100 oC,Balance: Horizontal differential type,TG measurement range: ±200 mg,DTA measurement range: ±1000 μV,Heating rate: 0.01 –100 oC/min,Gas flow rate: 0 to 1000 ml/min ,Special application: Curie Temperature measurement,Funding agency: Department of Science and Technology (DST)",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 78,
+        "fields": {
+            "name": "Hall Measurement",
+            "department": 13,
+            "description": "HALL MEASUREMENT SYSTEM,Make and model: ECOPIA HMS 5000, Korea,SPECIFICATIONS - Measurement capabilities: Bulk/sheet carrier concentration, mobility, Hall coefficient, bulk resistivity, conductivity and magnetoresistance, Magnetic flux density part. 0.55T magnetic flux density permanent magnet or electromagnet. Automatically moving, controlled by software program.Temperature measurement capability: From 80K to 350K.(variable temp), Accuracy: ±0.5K, Resolution:±1K. Automatically varied, controlled by Software program. Measurable from 80K to 330K, using liquid nitrogen cryostat.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 79,
+        "fields": {
+            "name": "Mathematical and Computing Lab",
+            "department": 12,
+            "description": "The departmentof Mathematics is one of the pioneering and the most distinguished departments in National Institute of Technology, Trichy. Applying a multi-disciplinary research and teaching methods, the Department strongly believes in finding mathematical solutions for various social-economic, technological and work related processes and challenges. With fourteen  faculty members representing major areas of mathematics, the Department is at the forefront of cutting-edge research as well as teaching and innovation. In addition to a number of world-class publications and reference sources, our faculty interact and collaborate with leading mathematicians around the world and regularly organize international conference/workshops and outreach events.,,The Department is committed to outstanding graduate training to produce leading scholars in various fields of mathematics. Since its inception, the Department  molds Ph. D graduates to carry out challenging research problems which have wide ranging industrial and social implications. Students are provided with ample opportunities to improve their research, teach courses, and participate in conferences/seminars. Besides emphasizing quality research, the Department also encourages its students’ to participate in extracurricular and other related activities in their areas of interest. From 2019, the Department offers M. Sc. in Mathematics.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 80,
+        "fields": {
+            "department": 14,
+            "description": "The language lab consists of 30 student booths and a control unit for the teacher.Literally, a teacher can teach the four basic language skills through this lab ,which is based on a state of the art technology. The teaching material can be sent to all the student ,stations and the teacher can speak, discuss, clarify ,and so on from the place where he is sitting,(Teacher's station).The lab also aims to facilitate self-learning.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 81,
+        "fields": {
+            "name": "Transducers Lab",
+            "department": 6,
+            "description": "Infrastructure :Accelerometers,Charge amplifiers,LVDT and Load cells,Strain gauges,Pressure transducers,Torque measuring systems,Speed measuring instruments,Sound level meter,Photo voltaic cells,Photo transistors,Proximity switches,Encoders,Hall effect probe,Impact hammer kit,Bimetallic thermometer,Mercury in steel thermometer,Vapour pressure thermometer,Capacitive transducer,Laser displacement sensor",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 82,
+        "fields": {
+            "name": "Control Systems Lab",
+            "department": 6,
+            "description": "Infrastructure:Electrical and Electronic components,DSO with FFT analyzer,Function generators,Process control simulator,MATLAB real time workshop,dSPACE 1104 Controller Board,SMA actuators,Piezo sensing and actuation system,Inverted Pendulum,Gyroscope,Articulated robot arm with control system,Personal computers",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 83,
+        "fields": {
+            "name": "Process Control Lab",
+            "department": 6,
+            "description": "Infrastructure:Temperature process trainer, Pressure process trainer, Flow process trainer, Level process trainer, Multi process trainer: System to study Feed-forward, cascade and ratio control schemes, Heat exchanger set up, Pilot model of distillation column, System to study control valve characteristics, Programmable logic controller with computer interface, DCS simulator, Data acquisition cards/modules, Facility for centralized pneumatic and water supply, Set-up for sensor less flow measurement, Personal Computers",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 84,
+        "fields": {
+            "name": "Instrumentation Lab",
+            "department": 6,
+            "description": "Infrastructure:Field pressure callibrator, Temperature field calibrators, Universal calibrator, Electro-pneumatic Converter, Pressure – current Converter, SMART Pressure Transmitter, Dead weight tester, Dual Block temperature Calibrator, High Temperature Calibrator, pH meter, Conductivity meter, Portable temperature calibrator, Thermocouple and RTDtransmitters, Electronic components for transmitter design",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 85,
+        "fields": {
+            "name": "MEMS Design Center",
+            "department": 6,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 86,
+        "fields": {
+            "name": "Microcontrollers Lab",
+            "department": 6,
+            "description": "Infrastructure:8 bit and 16 bit microprocessors, 8 bit and 16 bit micro-contollers, PIC Micro controller Kits, Add-on cards, Personal Computers",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 87,
+        "fields": {
+            "name": "Virtual Instrumentation Lab",
+            "department": 6,
+            "description": "Infrastructure:Virtual instrumentation software (LABVIEW 6.1), Distributed I/O modules, PXI Chassis, Real time PXI embedded controller (PXI-8176), PXI embedded controller (PXI-8176), LabVIEW order analysis tool set, PID control tool set, sigmal processing tool set, sound and vibration tool set. Multifunction data aquisition cards, Personal computers",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 88,
+        "fields": {
+            "name": "Modelling and Simulation Lab",
+            "department": 6,
+            "description": "Infrastructure:Softwares, Matlab, Scilab, LabVIEW, Mathematica, Orcad, FEMLAB, Keil Software, Topview simulator, Intellisuite",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 89,
+        "fields": {
+            "name": "Electronics Lab",
+            "department": 6,
+            "description": "Infrastructure:Function generators, Regulated power supply, Dual power supply, Cathode Ray Oscilloscopes, Digital Storage Oscilloscopes, Multimeters, LCR meter, 8 1/2 digit multimeter, Data Logger",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 90,
+        "fields": {
+            "name": "Embedded Systems Lab",
+            "department": 6,
+            "description": "Infrastructure:Universal Programmer, Hi-Tech C Cross Complier for Microchip PIC micro- 12/14/16/18, Hi-Tech C Cross complier for Microchip Intel 8 bit series, Real Time Kernel for microcontroller and evaluation board for CAN, ARM 7-CORE 32 bit Micro Controller, Data Acquisition Cards Compatible to Embedded Systems, In-circuit emulator for 8051 microcontrollers, 8051 microcontroller evaluation board, FPGA Board, Personal Computers, Digital Signal Processing Kits, Cross C compiler for TMS 320 C3X",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 91,
+        "fields": {
+            "name": "Biomedical Engineering Lab",
+            "department": 6,
+            "description": "Infrastructure:Respiratory analyzer, ECG monitoring equipment, Colour Frame Grabber and CCD Colour camera, Clinical audiometer, Blood pressure monitoring system, Blood Glucometer, PowerLab – Data Acquisition System With Front Ends & Transducers, General Purpose Biomedical Sensors & Signal Amplifier, Pulse Oximeter, Data Acquisition Cards, Personal Computers",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 92,
+        "fields": {
+            "name": "Industrial Automation Lab",
+            "department": 6,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 93,
+        "fields": {
+            "name": "Trainer CNC",
+            "department": 9,
+            "description": "EMCO PC TURN 55-2NOS, EMCO PC MILL 55-2NOS, TRIAC-3-AXIS MILLING MACHINE: RHINO X-3 ROBOTWOKCELL, AGV TRAINING SYSTEM. APPLICATIONS:All the above facilities are used by our Production Engineering, Mechanical Engineering, and P.G students. Also it is being used in CNC training for other Engineering College Students and practicing Engineers. It is also used for setting up the proposed Nodal CNC center to facilitate CNC Training.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 94,
+        "fields": {
+            "name": "Advanced CNC",
+            "department": 9,
+            "description": "HMT STC-15 Turning Centre, HARDFORD VMC, LEADWELL CNC TURNING CENTER, APPLICATIONS. All the above facilities are used by our Production Engineering, Mechanical Engineering, and P.G. Students. Also it is being used in CAD training for other Engineering College Students and Practicing Engineers.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 95,
+        "fields": {
+            "name": "Simulation",
+            "department": 9,
+            "description": "1. General Purpose Simulation Software (Student Version), 2. Arena (Student Version), 3. OM Expert, 4. SIMPROCESS (Student Version), 5. Virtual NC, 6. QUEST, 7.OPTQUEST, 8. CAFIMS, 9. UGRIP. Faculties: Dr Kumanan Somasundaram",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 96,
+        "fields": {
+            "name": "Operations Management",
+            "department": 9,
+            "description": "Operations Management Software are interactive, user-friendly and are widely used as operations  management models or tools. The following models are built and practiced in the OM laboratory. Facility Layout: Relative Allocation, Line Balancing. Forecasting: Moving Average, Weighted Moving Average, Exponential Smoothing,Exponential Smoothing With Linear Trend, Linear Regression Analysis. Inventory Control: Economic Order Quantity, Economic Lot Size, EOQ with Service Level , Fixed Time Period with Usage ,EOQ with Discount Job Shop Scheduling: One Machine Scheduling ,Two Machine Scheduling, Multiple Machine Scheduling. Linear Programming, Material Requirements Planning (MRP), Production Planning: Linear Decision Rule,Chase Strategy Method ,Level Strategy Method",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 97,
+        "fields": {
+            "name": "Computer Integrated Manufacturing",
+            "department": 9,
+            "description": "In the competitive manufacturing industry environment, it is now essential to employ computer aided product development and manufacturing methods. Aiming at this, the Department regularly conducts training courses on Programming and operation of CNC machines and CAD/CAM software. For the past ten years, the Department has conducted nearly 40 such courses and generated about of Rs. 20 lakhs.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 98,
+        "fields": {
+            "name": "Robotics ",
+            "department": 9,
+            "description": "Equipments :Scorbot-Robot, Scorbot ER5 Plus, View Flex Machine System, Compact Colour Vision System",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 99,
+        "fields": {
+            "name": "Software",
+            "department": 9,
+            "description": "There is centralized computer center available in the college, where about 300 nodes with latest software like: Pro-Engineer 2000i, Unigraphics 15.0, IDEAS master series 5.0, AutoCAD 2002, Autocad 2000, AutoCAD R14, MATLAB 6, which is useful for Production Engineering specialization and SPDD, LINDO, LINGO, ARENA, PROMODEL, GPSS which are useful for Industrial Engineering specialization is added advantages for the students of Production Engineering Department.",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 100,
+        "fields": {
+            "name": "Surface Engineering and Tribology",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 101,
+        "fields": {
+            "name": "Composites Materials Processing",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 102,
+        "fields": {
+            "name": "Machinability Studies",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 103,
+        "fields": {
+            "name": "Rapid Manufacturing",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 104,
+        "fields": {
+            "name": "Intelligent Manufacturing Systems",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 105,
+        "fields": {
+            "name": "Data Analytics",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 106,
+        "fields": {
+            "name": "Micromaching",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 107,
+        "fields": {
+            "name": "Ergonomics and Industrial Engineering",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 108,
+        "fields": {
+            "name": "Advanced welding",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 109,
+        "fields": {
+            "name": "Mechatronics",
+            "department": 9,
+            "description": "",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 110,
+        "fields": {
+            "name": "Powder Metallugy,",
+            "department": 10,
+            "description": "Tools available Atomic Absorption Spectrometer, 100T Friction Screw press, Atmosphere Controlled High Temperature Furnaces, Centrifugal Ball Mill, Four Point Planetary Ball Mill, High Energy Ball Mills, Laser Particle analyser, Glove Box",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 111,
+        "fields": {
+            "name": "Metallography",
+            "department": 10,
+            "description": "Scanning Electron Microscope, High Resolution Optical Microscope with Photographic Attachment, Image Analyzer, Abrasive Cut-off wheels, Sample Mounting Unit Stereo Microscope",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 112,
+        "fields": {
+            "name": "Mechanical Testing",
+            "department": 10,
+            "description": "Universal Testing Machine (60 T & 100T), Haunsfield Tensometer (Digital and Manual), Rockwell Hardness Tester (Digital and Manual), Brinell Hardness Tester, Micro Hardness Tester, Impact Testing Machine, Rotary Fatigue Testing Machine, Creep Batch",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 113,
+        "fields": {
+            "name": "Welding",
+            "department": 10,
+            "description": "SMAW/GTAW Power Source, GMAW welding Power Source, Automatic GTAW Facility, DATA Acquisition System",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 114,
+        "fields": {
+            "name": "Corrosion",
+            "department": 10,
+            "description": "Salt Spray Unit, The other facilities in this Department include: PARC Scanning Potentiostat, Potentiostat/Galvanostat, Computer Controlled Potentiostat/Galvanostat, Vacuum Impregnation Unit, Stress Corrosion Testing Unit, Facility for Electro Plating/ Electro Polishing, Facility for Conversion Coating/ Electroless Plating",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 115,
+        "fields": {
+            "name": "Process Modelling",
+            "department": 10,
+            "description": "Viscometer, Thermocalc, Data acquisition system, System workstation",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 116,
+        "fields": {
+            "name": "Surface Engineering",
+            "department": 10,
+            "description": "Abrasion Wear Tester, High Temperature Wear Tester, Wear Testing Machine, Potentiostat/Galvanostat, Also Pulse Rectifier",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 117,
+        "fields": {
+            "name": "Control Systems Research Lab",
+            "department": 4,
+            "description": "Research Area, Nonlinear controller design and it's applications to power electronics and robotic systems, Control strategy for electric/hybrid vehicle system with power electronic converter topologies for effective utilization of renewable energy, Design and implementation of fault tolerant control system, Adaptive Sliding Mode Control, Finite Time Controller Design for Single Machine Infinite Bus (SMIB) System, Semi-Autonomous Two Wheeler Mobile Robot.Fault tolerant control scheme for p.w.m. inverter fed induction motor based railway power system. MPPT control of surface permanent magnet synchronous machine based wind energy conversion system using sliding mode control. Research Project, Semi-Autonomous Two Wheeler Mobile Robot, Electric Vehicle, BLDC MOTOR",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 118,
+        "fields": {
+            "name": "Hybrid Electrical Systems Lab",
+            "department": 4,
+            "description": "Faculties: Dr.N.Kumaresan, Dr.M.P.Selvan, Dr.S.Moorthi, Dr.P.Raja",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 119,
+        "fields": {
+            "name": "Networking Research Lab",
+            "department": 4,
+            "description": "This lab is equipped with the following :(i) Three desktop systems with configuration of core i7 processors (3.40GHz), 4 GB RAM , all interconnected with each other with a high- speed Ethernet of 1 Gbps with Internet facility.(ii) Two 6 core High-end workstations with configuration of 2.3GHz, 15MB 7.2 GT/s, nVidia Quadro 4000 , 2GB with Dual DVI display.(iii) Universal trainer kits with ARM and PIC cards.(iv) 8051 starter kits, CC2500 Zigbee pairs, 2.4GHz Zigbee transceivers, Temperature sensors, humidity sensors, CO sensors and current sensors.(v) Planned to procure Motes, data Acquistion boards, Sensor boards and QualNet under plan fund.This lab is set up for research scholars (PhD and MS), to carry out research in areas like wireless technology , web services and networking. The different kinds of sensors are provided to develop mini and real-time wireless sensor projects by the students. Softwares like MPLAB, Keil etc. are used to program the universal trainer kits. QualNet will be used to simulate and study the performance of various wireless sensor network scenarios. Research will be carried out in the field of WSN. Contact Details:  sudha@nitt.edu. Faculties: Dr.S.Sudha",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 120,
+        "fields": {
+            "name": "Power Converters Research Lab (partly funded by NaMPET)",
+            "department": 4,
+            "description": "Faculties: Dr.N.Ammasai Gounden, Dr.C.Nagamani, Dr.S.Arul Daniel, Dr.N.Kumaresan, Dr.M.P.Selvan, Dr.G.Saravana Ilango, Dr.S.Senthil Kumar",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 120,
+        "fields": {
+            "name": "Power Electronics Research Lab\r",
+            "department": 4,
+            "description": "Faculties: Dr.K.Sundareswaran",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 121,
+        "fields": {
+            "name": "Power Systems and Smart Grid Lab",
+            "department": 4,
+            "description": "Faculties: Dr. M.Jaya Bharata Reddy",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 122,
+        "fields": {
+            "name": "Power System Automation and Control Research Lab",
+            "department": 4,
+            "description": "Faculties: Dr.Sishaj.P.Simon,Ms.M.Venkata Krithiga,Dr.P.Raja,Mr.P.Srinivasa Rao Nayak",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 123,
+        "fields": {
+            "name": "Solar PV Energy conversion ResearchLab",
+            "department": 4,
+            "description": "Faculties: Dr.G.Saravana Ilango",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 124,
+        "fields": {
+            "name": "VLSI Systems Research Lab",
+            "department": 4,
+            "description": "Faculties: Dr.S.Moorthi",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 125,
+        "fields": {
+            "name": "Switched Mode Power Converters Research Laboratory",
+            "department": 4,
+            "description": "This lab addresses issues related to energy conservation, alternate energy systems, zero energy buildings and locomotion. This lab also focusses on topics such as Electro-magnetics, switched mode power conversion, power quality, power converters, PWM techniques and AC motor drives. Experiments and projects in this lab includes multilevel inverter topologies, control for renewable power generation systems, modelling for the design of switched mode power controllers, hybrid energy technology, wind energy system for stand- alone, grid connected applications and simulation of high current converters for heating and welding applications.Faculties: Dr. S. Senthil Kumar",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 126,
+        "fields": {
+            "name": "Electric Mobility Research Lab",
+            "department": 4,
+            "description": "Faculties: Dr. P.Srinivasa Rao Nayak",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 127,
+        "fields": {
+            "name": "Industrial Automation Research Lab",
+            "department": 4,
+            "description": "Faculties: Dr. C. Nagamani, Professors HAG, NIT-T Dr. M. Jaya Bharata Reddy, Professor, NIT-T, Dr. G. Saravana Ilango, Associate Professor, NIT-T, Dr. S. Senthil Kumar, Associate Professor, NIT-T",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 128,
+        "fields": {
+            "name": "Nano and Micro Grid Laboratory",
+            "department": 4,
+            "description": "Faculties: Dr. S. Arul Daniel, Professors HAG, NIT-T, Dr. M. Venkata Kirthiga, Associate Professor, NIT-T, Mrs. S. Mageshwari, Assistant Professor, NIT-T",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 129,
+        "fields": {
+            "name": "Robotics Lab",
+            "department": 4,
+            "description": "Faculties: Dr. V. Sankaranarayanan",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
+        }
+    },
+    {
+        "model": "api.labs",
+        "pk": 130,
+        "fields": {
+            "name": "Siemens Lab",
+            "department": 4,
+            "description": "Faculties: Dr. M. Venkata Kirthiga, Associate Professor, NIT-T, Dr. Josephine R.L, Assistant Professor, NIT-T",
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     }
 ]
