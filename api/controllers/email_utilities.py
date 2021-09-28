@@ -1,31 +1,21 @@
 import logging
 import os
 from api.controllers.project_utilities import get_project_members
-from api.helpers.email_helpers import get_html
+from api.helpers.email_helpers import get_html, PersistentPika
 from api.models import Project
 from email.message import EmailMessage
 from os import environ, link
 from pika import BlockingConnection, ConnectionParameters, PlainCredentials
 logger = logging.getLogger(__name__)
 
-connection = BlockingConnection(
-    ConnectionParameters(
-        host=environ.get('MAILER_RABBITMQ_HOST'),
-        port=int(environ.get('MAILER_RABBITMQ_PORT')),
-        virtual_host=environ.get('MAILER_RABBITMQ_VHOST'),
-        credentials=PlainCredentials(
-            username=environ.get('MAILER_RABBITMQ_USER'),
-            password=environ.get('MAILER_RABBITMQ_PASS')
-        )
-    )
-)
-
-channel = connection.channel()
-
-channel.queue_declare(
+persistentPika = PersistentPika(
+    host=environ.get('MAILER_RABBITMQ_HOST'),
+    port=int(environ.get('MAILER_RABBITMQ_PORT')),
+    virtual_host=environ.get('MAILER_RABBITMQ_VHOST'),
+    user=environ.get('MAILER_RABBITMQ_USER'),
+    password=environ.get('MAILER_RABBITMQ_PASS'),
     queue=environ.get('MAILER_RABBITMQ_QUEUE')
-)
-
+) 
 
 def send_email(msg: EmailMessage) -> bool:
     """
@@ -35,6 +25,7 @@ def send_email(msg: EmailMessage) -> bool:
     Returns True if message was added successfully
     """
     try:
+        channel = persistentPika.get_channel()
         channel.basic_publish(
             exchange='',
             routing_key=environ.get('MAILER_RABBITMQ_QUEUE'),

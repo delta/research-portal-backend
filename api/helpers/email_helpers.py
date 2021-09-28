@@ -1,3 +1,6 @@
+from pika import BlockingConnection, ConnectionParameters, PlainCredentials
+from os import environ
+
 def get_html(content, link, linkText):
     return f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -84,3 +87,41 @@ def get_html(content, link, linkText):
     </table>
 </body>
 </html>'''
+
+class PersistentPika:
+    def __init__(self, host, port, virtual_host, user, password, queue):
+        self.host = host
+        self.port = port
+        self.virtual_host = virtual_host
+        self.user = user
+        self.password = password
+        self.queue = queue
+        self.initialize_connection()
+
+    def initialize_connection(self):
+        self.connection = BlockingConnection(
+            ConnectionParameters(
+                host=self.host,
+                port=self.port,
+                virtual_host=self.virtual_host,
+                heartbeat=0,
+                credentials=PlainCredentials(
+                    username=self.user,
+                    password=self.password
+                )
+            )
+        )
+
+        self.channel = self.connection.channel()
+
+        self.channel.queue_declare(
+            queue=self.queue,
+            passive=True,
+        )
+
+
+    def get_channel(self):
+        if not self.connection.is_open:
+            self.initialize_connection()
+
+        return self.channel
