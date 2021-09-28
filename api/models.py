@@ -284,6 +284,7 @@ class Department(models.Model):
         HU = "HUMANITIES", _("Humanities")
         AR = "ARCHITECTURE", _("Architecture")
         MS = "MS", _("Management Studies")
+        CH = "CH", _("Chemistry")
         MAINTAINER = "XX", _("Maintainer")  # Special dept for all super-admins
 
     full_name = models.CharField(unique=True, max_length=50)

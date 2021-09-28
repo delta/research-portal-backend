@@ -151,5 +151,14 @@
             "full_name": "Maintainer",
             "short_name": "XX"
         }
+    },
+    {
+        "model": "api.department",
+        "pk": 18,
+        "fields": {
+            "image_url":"https://www.nitt.edu/home/academics/departments/chemistry/chem%20dept.jpg",
+            "full_name": "Chemistry",
+            "short_name": "CH"
+        }
     }
 ]

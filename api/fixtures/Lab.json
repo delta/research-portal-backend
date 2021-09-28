@@ -634,7 +634,7 @@
         "pk": 64,
         "fields": {
             "name": "B.E/B.Tech. lab",
-            "department": "Chemistry",
+            "department": 18,
             "description": "The departmentof Chemistry was established in 1971 occupying the whole of the ground floor of western wing of the administrative block. The Department of Chemistry possesses excellent facilities and sophisticated equipments for the students during their course of study. List of Important Instruments in Chemistry Department 1. 500 MHz NMR Spectrometer,2. Shimadzu GC-MS spectrometer,3. Agilent HR-Mass spectrometer,4. Atomic Force Microscope,5. Thermogravimetric Analyzer,6. UV-VIS Spectrophotometer (Perkin Elmer EZ301),7. FT-IR Spectrometer (Perkin Elmer- spectrum one),8. Binary Gradient HPLC System,9. AAS (GBC-902) with Graphite Furnace (GF-2000),10. Pulse polorograph,11. Potentiostat,12.Electrochemical Analyzer,13. Spectrofluorimeter,14. Gel Documentation System. Contact Details: Email: babyv@nitt.edu, Faculties: Dr. Baby Viswambharan Asst. Professor",
             "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
@@ -644,7 +644,7 @@
         "pk": 65,
         "fields": {
             "name": "Spectroscopy and Chemical Dynamics Laboratory",
-            "department": "Chemistry",
+            "department": 18,
             "description": "Contact Details: Phone: +91 8158805377 Email: smandal@nitt.edu, Faculties: Dr. Sarthak Mandal,Assistant Professor",
             "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
@@ -654,7 +654,7 @@
         "pk": 66,
         "fields": {
             "name": "Instrumentation Lab",
-            "department": "Chemistry",
+            "department": 18,
             "description": "",
             "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
@@ -664,7 +664,7 @@
         "pk": 67,
         "fields": {
             "name": "Computer lab",
-            "department": "Chemistry",
+            "department": 18,
             "description": "",
             "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
@@ -674,7 +674,7 @@
         "pk": 68,
         "fields": {
             "name": "Research lab",
-            "department": "Chemistry",
+            "department": 18,
             "description": "",
             "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
@@ -684,7 +684,7 @@
         "pk": 69,
         "fields": {
             "name": "Nanomaterials & Solar Energy Conversion Lab",
-            "department": "Chemistry",
+            "department": 18,
             "description": "Contact Details: E-mail: sanand@nitt.edu, Faculties: Dr. S Anandan,Professor",
             "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
