@@ -22,7 +22,7 @@
         "pk": 3,
         "fields": {
             "image_url":"https://www.nitt.edu/home/academics/departments/ece/1.jpeg",
-            "full_name": "Electrical & Communication Engineering",
+            "full_name": "Electronics & Communication Engineering",
             "short_name": "ECE"
         }
     },
@@ -49,7 +49,7 @@
         "pk": 6,
         "fields": {
             "image_url":"https://www.nitt.edu/home/academics/departments/ice/ice.jpg",
-            "full_name": "Instrumentation & Communication Engineering",
+            "full_name": "Instrumentation & Control Engineering",
             "short_name": "ICE"
         }
     },
