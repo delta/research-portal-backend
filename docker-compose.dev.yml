@@ -12,6 +12,8 @@ services:
   pgadmin:
     container_name: research_portal_pgadmin
     image: dpage/pgadmin4
+    logging:
+      driver: none
     env_file:
       - .env
     ports:
