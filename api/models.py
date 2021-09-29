@@ -270,10 +270,10 @@ class Department(models.Model):
 
         CS = "CSE", _("Computer Science & Engineering")
         CA = "CA", _("Computer Applications")
-        EC = "ECE", _("Electrical & Communication Engineering")
+        EC = "ECE", _("Electronics & Communication Engineering")
         EE = "EEE", _("Electrical & Electronics Engineering")
         ME = "MECH", _("Mechanical Engineering")
-        ICE = "ICE", _("Instrumentation & Communication Engineering")
+        ICE = "ICE", _("Instrumentation & Control Engineering")
         CE = "CHEM", _("Chemical Engineering")
         CL = "CIVIL", _("Civil Engineering")
         PR = "PROD", _("Production Engineering")
