@@ -108,4 +108,5 @@ def send_reset_pass_link(user):
                                 linkText="Click Here"
                         ), subtype="html")
 
+    print(f'''Please click the following link to reset your password: {root_url}/api/user/reset-password/?auth_token={user.token}''')
     return send_email(msg)

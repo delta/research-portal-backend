@@ -128,9 +128,11 @@ class RegisterFormView(View):
 @method_decorator(JsonResponseDec, name='dispatch')
 class ResetPassRequest(View):
     def post(self, req):
-        """Get email from post request.
-            Check if the user exists and is verified.
-            Then send reset password link to user"""
+        """
+        Get email from post request.
+        Check if the user exists and is verified.
+        Then send reset password link to user
+        """
         data = json.loads(req.body)
         email = data['email']
         try:
@@ -140,8 +142,7 @@ class ResetPassRequest(View):
 
         if user.is_verified:
             send_reset_pass_link(user)
-            logger.info(
-                'User(email={}) Password reset link sent'.format(email))
+            logger.info('User(email={}) Password reset link sent'.format(email))
             return "Password reset link sent!"
         else:
             logger.info('User(email={}) Verification pending'.format(email))
@@ -183,15 +184,39 @@ class ResetPassUpdate(View):
         except:
             logger.info('Token({}): Invalid token'.format(token))
             return error_response("Invalid Token")
-        # TODO - check password conditions if any and throw error if not met
-        user.set_password(new_pass)
-        new_token = generate_auth_token(50)
-        user.token = new_token
-        user.save()
-        logger.info('{} Password reset successful'.format(user))
-        return "Password successfully reset!"
+        # TODO - same password condition checked, password validation in frontend
+        if not user.check_password(new_pass):
+            user.set_password(new_pass)
+            new_token = generate_auth_token(50)
+            user.token = new_token
+            user.save()
+            logger.info('{} Password reset successful'.format(user))
+            return "Password successfully reset!"
+        else:
+            return error_response("Enter a new password")
 
-
+class VerifyResetToken(View):
+    """
+    Verify the password reset token from email link and redirect accordingly 
+    """
+    def get(self, req):
+        token = req.GET.get("auth_token")
+        try:
+            user = User.objects.get(token=token)
+        except:
+            logger.info('Token({}): Invalid token'.format(token))
+            return JsonResponse({
+                'status_code': 400,
+                'data': 'Invalid token'
+            })
+        if user.is_verified:
+            redirect_url = os.environ.get("FRONTEND_BASE_URL")+'reset-password/{}'.format(token)
+            return redirect(redirect_url)
+        else:
+            logger.info('User(user={}) Verification pending'.format(user))
+            redirect_url = os.environ.get("FRONTEND_BASE_URL")
+            return redirect(redirect_url)
+        
 class VerifyEmail(View):
     def get(self,req):
         """
