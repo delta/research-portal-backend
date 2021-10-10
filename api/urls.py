@@ -12,6 +12,7 @@ urlpatterns = [
     url('user/register/', user.RegisterFormView.as_view(), name='user-register'),
     url('user/verify_email/', user.VerifyEmail.as_view(), name='verify-email'),
     url('user/pass_reset/', user.ResetPassRequest.as_view(), name='user-pass-reset'),
+    url('user/reset-password/', user.VerifyResetToken.as_view(), name='verify-reset-token'),
     url('user/pass_update/', user.ResetPassUpdate.as_view(), name='user-pass-update'),
     url('user/is_staff/', user.GetIsStaff.as_view(), name='user-get-privilege'),
     url('user/admin_level/',user.GetAdminLevel.as_view(),name='user-get-admin-level'),
