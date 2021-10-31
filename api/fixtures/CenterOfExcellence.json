@@ -5,7 +5,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Product Design & Validation Lab",
             "description": "Provides the most powerful, flexible and innovative product development solutions in the industry through NX software.\nSupporting every aspect of product development, from concept design through engineering and manufacturing solutions.\nThe NX for Design has multiple tools to benefit you in 2D & 3D CAD Modelling, Design Interoperability, Mechanical - Electrical/Electronic Design, Design Validation, Design for Manufacturing, Moulded Part Validation & Injection Moulding Simulation, Industrial Design & Styling, Reverse Engineering, Mechatronic Concept Design, P&ID Design, 3D Electrical Wiring and Harness Design, Aero Structures Design, Automotive Design, Marine Design Solutions and many more.\nThe NX for Manufacturing drives efficient end-to-end part manufacturing operations and deliver high-precision parts through digitalization.\nProgram CNC machine tools, control robotic cells, drive 3D printers and monitor quality using one software system. It has advanced capabilities to perform Mold, Die & Electrode Machining, Prismatic Parts Machining, CMM Inspection Programming, Robotic Automation, Tooling & Fixture Design, Mold Design, Die Design and many more.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/design&validation/Design-Validation-Lab2.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -14,7 +14,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Advanced Manufacturing Lab",
             "description": "This Lab facilitates factory layout design and optimization through Tecnomatix software.\n\nDigital Twins Navigation, Virtual Commissioning of Automated Systems, Plant Simulation & Throughput Optimization, Human-Centered Design and Planning, Ergonomics & Human Performance, Offline Robotic Programming and automation, Press Line Design & Simulation, Impact of Dimensional variation, Work Instruction Delivery, Manufacturing Process Planning, Assembly Simulation for Virtual Process Verification, Production Logistics & Material Flow, Material Flow Optimization, Plant Simulation & Throughput Optimization, Factory and Line Design are some of the modules available in the software.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/manufacturing-lab/Advanced-Manufacturing-Lab2.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -23,7 +23,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Test & Optimisation Lab",
             "description": "The Test and Optimization Lab addresses complex engineering challenges safeguarding the balance between technological design options and functional performance. From testing and mechanical simulation to model-based systems engineering it enables engineers to understand the functional performance engineering of mechatronic systems to solve noise, vibration and harshness (NVH), acoustics, durability, dynamics, performance, fuel economy and controls development issues.\n\nThe system simulation, 3D CAE and test to help students and industry predict performance across all critical attributes earlier and throughout the entire product lifecycle. By combining physics-based simulations with insights gained from data analytics, Simcenter helps students & industry optimize design and deliver innovations faster.\n\nThe computational fluid dynamics solution allows student’s & industry to simulate almost any engineering problem that involves the flow of liquids, gases (or a combination of both), together with all of the associated physics.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/test&optimisation-lab/Test-Optimisation-Lab2.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -32,7 +32,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Rapid Proto Typing (RPT) Lab",
             "description": "Rapid prototyping is a group of techniques used to quickly fabricate a scale model of a physical part or assembly using three-dimensional computer aided design (CAD) data. Construction of the part or assembly is usually done using 3D printing or \"additive layer manufacturing\" technology.\n\nThis is a fast-emerging technology which is finding its way into manufacturing addressing various industries. In the Rapid Prototyping (RPT) Lab the students are though how to design and manufacture using the RPT Machine.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/rpt-lab/Rapid-Proto-Typing-Lab2.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -41,7 +41,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Robotics Lab",
             "description": "Robots play an important role in the manufacturing industry, ensuring that the quality of the product is not compromised and the production volumes are met. In the Robotics Lab we would teaching the students to understand the working principals of a Robot, how to program it and apply it to an application. There would be three (3) robotics cells catering different applications, they are:\n\n Pick and Place Robotic Cell\n Spot Welding Robotic Cell\n MIG Welding Robotic Cell",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/robotics-lab/Robotics-Lab2.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -50,7 +50,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-CNC Controller Lab",
             "description": "The CNC Controller Lab enables students to understand the concept of CNC Programming and work real Sinumerik 808D controller for Turning and Milling applications. The students will also get to work on the Sinumerik 840 Dsl rack which supports programming upto 31 Axis. This would enable students to program complex jobs. The students can learn how to program and test the CNC Program using the Sinutrain software.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/cnc-controller-lab/CNC-Controller-Lab4.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -59,7 +59,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Automation Lab",
             "description": "The Automation Lab allows the students to understand the requirement and functioning of Programmable Logic Controllers (PLCs). This is the first step toward Internet of Things (IOT). Here the students learn how to Program Industrial PLCs, work with Industrial Human Machine Interface (HMI), Industrial SCADA (Supervisory Control & Distributed Acquisition) and PLC networking using profibus and profinet.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/automation-lab/Automation-Lab3.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -68,7 +68,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Process Instrumentation Lab",
             "description": "The Process Instrumentation Lab enables students to work on Advance Automation using Distributed Control Systems (DCS) and understanding the working of the following equipment’s in a plant:\n\n Temperature\n Flow\n Level\n Pressure\n Sensors/Measurements & Communications",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/instrumentation-lab/Process-Instrumentation-Lab4.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -77,7 +77,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Mechatronics Lab",
             "description": "The Mechatronic lab brings together four departments of engineering, namely Mechanical, Electrical, Electronics & Communication and Computer Science. This allow students to work on a mini factory like setup and on areas such as Pneumatics & Hydraulics, Sensors, Communication Protocol, PLC programming, PLC Networking using profibus and profinet.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/mechatronics-lab/Mechatronics-Lab2.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -86,7 +86,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Electrical & Energy saving Lab",
             "description": "AC/ DC Drives: Students are introduced to the usage of drives from the industries where they are used to how to vary the speed as per process/application requirement and how it controls the various motor parameters. Siemens Innovative design provides the right frequency converter suitable for every drive application. Siemens drive portfolio represents uniform engineering, extremely high efficiency and convenient operation.\n\nSwitchgears: Students are introduced to how in power system switchgears are used to control, protect and isolate electrical equipment’s. Low voltages switchgears also used in residential, industrial and commercial segments. Siemens switchgear is widely used in industry because of their compliance with standard, precise design , operational benefits and wide range.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/electrical-lab/Electrical-Energy-saving-Lab5.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
@@ -95,7 +95,7 @@
         "fields": {
             "name": "Siemens Centre of Excellence in Manufacturing-Internet Of Things (IOT)Lab",
             "description": "The Internet of Things, or IoT, is emerging as the next technology mega-trend, with repercussions across the business spectrum. By connecting to the Internet billions of everyday devices – ranging from fitness bracelets to industrial equipment – the IoT merges the physical and online worlds, opening up a host of new opportunities and challenges for companies, governments and consumers.",
-            "image_url": "https://siemenscoe.nitt.edu/images/lab/iot-lab/IOT-Lab2.jpg"
+            "image_url": "https://sicweb.com/images/blog/lab-equipment-maintenance.jpg"
         }
     },
     {
